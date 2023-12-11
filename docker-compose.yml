@@ -2,7 +2,7 @@ web:
   container_name: mmiklaszewski_web
   build: .
   ports:
-    - "20185:80"
+    - "3080:80"
   volumes:
     - .:/var/www/html
 db:
@@ -19,7 +19,7 @@ phpmyadmin:
   container_name: mmiklaszewski_phpmyadmin
   image: phpmyadmin/phpmyadmin
   ports:
-    - '30185:80'
+    - '3082:80'
   environment:
     PMA_HOSTS: db
     MYSQL_ROOT_PASSWORD: pass
