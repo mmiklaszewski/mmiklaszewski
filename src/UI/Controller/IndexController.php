@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\UI\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,9 +10,7 @@ final class IndexController extends AbstractController
     #[Route(path: '/', name: 'index')]
     public function index()
     {
-        dump('test');
-        die();
-
+        return $this->render('about_me/index.html.twig');
     }
 
 }
