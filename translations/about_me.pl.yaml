@@ -1,2 +1,68 @@
 about_me:
   title: O mnie
+  description: "Nazywam się Maciek. Programuję od czasów studiów. Zawodowo od 2016 roku. Jestem absolwentem Uniwersytetu Śląskiego w Katowicach gdzie uzyskałem tytuł inżyniera.
+                Na codzień pracuję jako PHP Developer w oparciu o framework Symfony. Interesuje się technologiami, które mają praktyczne zastosowanie w rozwoju aplikacji webowych takimi jak Elasticsearch, OpenAI, RabbitMQ, Qdrant.
+                Prywatnie lubię majsterkować i jestem szczęśliwym ojcem półtorarocznego urwisa."
+
+
+  information:
+    name: Imię i nazwisko
+    name_value: Maciej Miklaszewski
+    birthday: Data urodzenia
+    birthday_value: 05.05.1993
+    address: Adres
+    address_value: Bieruń, Śląskie, Polska
+
+    experience: Doświadczenie
+    experience_value: +7 lat
+    phone: Telefon
+    phone_value: +48 790 366 811
+    email: Adres e-mail
+    email_value: mmiklaszewski93@gmail.com
+
+skills:
+  title: Umiejętności
+
+experience:
+  title: Doświadczenie
+  companies:
+    1:
+      dates: 12.2016 - obecnie
+      position: Senior PHP Developer
+      name: DBMS Sp. z o.o.
+      description: "Jako doświadczony programista PHP pełnię kluczową role w rozwijaniu i planowaniu aplikacji dmsales.com pozwalającej pozyskiwać oraz zarządzać kontaktami b2b.
+                    Moje obowiązki obejmują nie tylko rozwój w PHP, ale także integrację z różnymi technologiami, zapewniając niezawodność i skuteczność naszego narzędzia."
+
+    2:
+      dates: 03.2016 - 10.2016
+      position: PHP Developer
+      name: KLEEK Ltd
+      description: "Utrzymywanie oraz rozwój aplikacji webowych w oparciu o autorski framework PHP."
+
+    3:
+      dates: 07.2015
+      position: Praktyka
+      name: SHG Przemysław Kudłacik
+      description: "Miesiączna praktyka, wykonanie strony internetowej w oparciu o CMS Made Simple"
+
+
+education:
+  title: Edukacja
+  schools:
+    1:
+      dates: 2013-2018
+      name: Uniwersytet Śląski
+      description: "
+        Kierunek: Informatyka <br>
+        Specjalizacja: Projektowanie aplikacji webowych <br>
+        Uzyskany tytuł: Inżynier"
+
+    2:
+      dates: 2012-2013
+      name: Wyższa Szkoła Informatyki i Zarządzania
+      description: "Kierunek: informatyka"
+
+    3:
+      dates: 2009 - 2012
+      name: Liceum Ogólnokształcące im. Powstańców Śląskich
+      description: "Profil: matematyczno - informatyczno - fizyczny"

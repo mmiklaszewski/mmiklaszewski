@@ -16,7 +16,7 @@ final class IndexController extends AbstractController
         return $this->redirectToRoute('homepage', ['_locale' => 'pl']);
 
     }
-    #[Route('/{_locale<%app.supported_locales%>}/main', name: 'homepage')]
+    #[Route('/{_locale<%app.supported_locales%>}/', name: 'homepage')]
     public function index(): Response
     {
         return $this->render('about_me/index.html.twig');

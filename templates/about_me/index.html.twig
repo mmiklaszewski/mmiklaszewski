@@ -5,10 +5,10 @@
         <div class="col-lg-4 sticky-lg-top vh-100">
             <div class="d-flex flex-column h-100 text-center overflow-auto shadow">
                 <img class="w-100 img-fluid mb-4" src="{{ asset('assets/img/me.png') }}" alt="Image">
-                <h1 class="text-primary mt-2">John Doe</h1>
+                <h1 class="text-primary mt-2">Maciej Miklaszewski</h1>
                 <div class="mb-4" style="height: 22px;">
                     <h4 class="typed-text-output d-inline-block text-light"></h4>
-                    <div class="typed-text d-none">Programista PHP, ElasticSearch</div>
+                    <div class="typed-text d-none">Programista PHP, Elasticsearch, Symfony, OpenAI</div>
                 </div>
                 <div class="d-flex justify-content-center mt-auto mb-3">
                     <a class="btn btn-secondary btn-square mx-1" href="#"><i class="fab fa-twitter"></i></a>
@@ -26,60 +26,26 @@
             <!-- About Start -->
             <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
                 <h1 class="title pb-3 mb-5">{{ 'about_me.title'|trans({}, 'about_me') }}</h1>
-                <p>Diam rebum sea stet rebum ea. Et kasd amet et accusam elitr voluptua. Tempor dolore sit et accusam ipsum erat duo. Gubergren et takimata dolor duo amet et sanctus elitr lorem. Ipsum amet duo rebum dolor labore. No diam duo lorem elitr dolor takimata elitr no. Magna et gubergren duo ipsum sed, amet ea voluptua dolores voluptua dolor ipsum et. Sit takimata erat consetetur invidunt lorem consetetur. Lorem magna diam vero nonumy. Aliquyam diam voluptua magna et magna nonumy. Accusam rebum clita et sit vero lorem, voluptua amet sit eos no et labore vero, et consetetur justo et et sit aliquyam labore, sit erat lorem justo dolores kasd est sit. Dolor et accusam ea et dolor sit.</p>
+                <p>{{ 'about_me.description'|trans({}, 'about_me') }}</p>
                 <div class="row mb-4">
                     <div class="col-sm-6 py-1">
-                        <span class="fw-medium text-primary">Name:</span> John Doe
+                        <span class="fw-medium text-primary">{{ 'about_me.information.name' | trans({}, 'about_me') }}:</span> {{ 'about_me.information.name_value' | trans({}, 'about_me') }}
                     </div>
                     <div class="col-sm-6 py-1">
-                        <span class="fw-medium text-primary">Birthday:</span> 1 April 1990
+                        <span class="fw-medium text-primary">{{ 'about_me.information.birthday' | trans({}, 'about_me') }}:</span> {{ 'about_me.information.birthday_value' | trans({}, 'about_me') }}
                     </div>
                     <div class="col-sm-6 py-1">
-                        <span class="fw-medium text-primary">Degree:</span> Master
+                        <span class="fw-medium text-primary">{{ 'about_me.information.address' | trans({}, 'about_me') }}:</span> {{ 'about_me.information.address_value' | trans({}, 'about_me') }}
+                    </div>
+
+                    <div class="col-sm-6 py-1">
+                        <span class="fw-medium text-primary">{{ 'about_me.information.experience' | trans({}, 'about_me') }}:</span> {{ 'about_me.information.experience_value' | trans({}, 'about_me') }}
                     </div>
                     <div class="col-sm-6 py-1">
-                        <span class="fw-medium text-primary">Experience:</span> 10 Years
+                        <span class="fw-medium text-primary">{{ 'about_me.information.phone' | trans({}, 'about_me') }}:</span> {{ 'about_me.information.phone_value' | trans({}, 'about_me') }}
                     </div>
                     <div class="col-sm-6 py-1">
-                        <span class="fw-medium text-primary">Phone:</span> +012 345 6789
-                    </div>
-                    <div class="col-sm-6 py-1">
-                        <span class="fw-medium text-primary">Email:</span> info@example.com
-                    </div>
-                    <div class="col-sm-6 py-1">
-                        <span class="fw-medium text-primary">Address:</span> 123 Street, New York, USA
-                    </div>
-                    <div class="col-sm-6 py-1">
-                        <span class="fw-medium text-primary">Freelance:</span> Available
-                    </div>
-                </div>
-                <div class="row g-4">
-                    <div class="col-md-4 col-lg-6 col-xl-4">
-                        <div class="d-flex bg-secondary p-4">
-                            <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">10</h1>
-                            <div class="ps-3">
-                                <p class="mb-0">Years of</p>
-                                <h5 class="mb-0">Experience</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-lg-6 col-xl-4">
-                        <div class="d-flex bg-secondary p-4">
-                            <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">100</h1>
-                            <div class="ps-3">
-                                <p class="mb-0">Happy</p>
-                                <h5 class="mb-0">Clients</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-lg-6 col-xl-4">
-                        <div class="d-flex bg-secondary p-4">
-                            <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">200</h1>
-                            <div class="ps-3">
-                                <p class="mb-0">Complete</p>
-                                <h5 class="mb-0">Projects</h5>
-                            </div>
-                        </div>
+                        <span class="fw-medium text-primary">{{ 'about_me.information.email' | trans({}, 'about_me') }}:</span> {{ 'about_me.information.email_value' | trans({}, 'about_me') }}
                     </div>
                 </div>
             </section>
@@ -87,63 +53,57 @@
 
             <!-- Skills Start -->
             <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
-                <h1 class="title pb-3 mb-5">Skills</h1>
+                <h1 class="title pb-3 mb-5">{{ 'skills.title' | trans({}, 'about_me') }}</h1>
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="skill mb-4">
                             <div class="d-flex justify-content-between">
-                                <p class="mb-2">HTML</p>
-                                <p class="mb-2">95%</p>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <div class="skill mb-4">
-                            <div class="d-flex justify-content-between">
-                                <p class="mb-2">CSS</p>
-                                <p class="mb-2">85%</p>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <div class="skill mb-4">
-                            <div class="d-flex justify-content-between">
                                 <p class="mb-2">PHP</p>
-                                <p class="mb-2">90%</p>
                             </div>
                             <div class="progress">
-                                <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        <div class="skill mb-4">
+                            <div class="d-flex justify-content-between">
+                                <p class="mb-2">Symfony</p>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        <div class="skill mb-4">
+                            <div class="d-flex justify-content-between">
+                                <p class="mb-2">RabbitMQ</p>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar bg-info" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="skill mb-4">
                             <div class="d-flex justify-content-between">
-                                <p class="mb-2">Javascript</p>
-                                <p class="mb-2">90%</p>
+                                <p class="mb-2">Elasticsearch</p>
                             </div>
                             <div class="progress">
-                                <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                         <div class="skill mb-4">
                             <div class="d-flex justify-content-between">
-                                <p class="mb-2">Angular JS</p>
-                                <p class="mb-2">95%</p>
+                                <p class="mb-2">OpenAI</p>
                             </div>
                             <div class="progress">
-                                <div class="progress-bar bg-success" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-info" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                         <div class="skill mb-4">
                             <div class="d-flex justify-content-between">
-                                <p class="mb-2">Wordpress</p>
-                                <p class="mb-2">85%</p>
+                                <p class="mb-2">Linux</p>
                             </div>
                             <div class="progress">
-                                <div class="progress-bar bg-info" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                     </div>
@@ -153,42 +113,41 @@
 
             <!-- Expericence Start -->
             <section class="py-5 wow fadeInUp" data-wow-delay="0.1s">
-                <h1 class="title pb-3 mb-5">Expericence</h1>
+                <h1 class="title pb-3 mb-5">{{ 'experience.title' | trans({}, 'about_me') }}</h1>
                 <div class="border-start border-2 border-light pt-2 ps-5">
+                    {% for i in range (1,3) %}
+
                     <div class="position-relative mb-4">
                         <span class="bi bi-arrow-right fs-4 text-light position-absolute" style="top: -5px; left: -50px;"></span>
-                        <h5 class="mb-1">Web Designer</h5>
-                        <p class="mb-2">Soft Company | <small>2000 - 2050</small></p>
-                        <p>Tempor eos dolore amet tempor dolor tempor. Dolore ea magna sit amet dolor eirmod. Eos ipsum est tempor dolor. Clita lorem kasd sed ea lorem diam ea lorem eirmod duo sit ipsum stet lorem diam</p>
+                        {% set companyData = "%s.%s" | format('experience.companies', i) %}
+{#                        {% set companyData = 'experience.companies.' . {x} %}#}
+                        <h5 class="mb-1">{{ "%s.%s" | format (companyData, 'position') | trans({}, 'about_me') }}</h5>
+                        <p class="mb-2">{{ "%s.%s" | format (companyData, 'name') | trans({}, 'about_me') }} | <small>{{ "%s.%s" | format (companyData, 'dates') | trans({}, 'about_me') }}</small></p>
+                        <p>{{ "%s.%s" | format (companyData, 'description') | trans({}, 'about_me') }}</p>
                     </div>
-                    <div class="position-relative mb-4">
-                        <span class="bi bi-arrow-right fs-4 text-light position-absolute" style="top: -5px; left: -50px;"></span>
-                        <h5 class="mb-1">Web Designer</h5>
-                        <p class="mb-2">Soft Company | <small>2000 - 2050</small></p>
-                        <p>Tempor eos dolore amet tempor dolor tempor. Dolore ea magna sit amet dolor eirmod. Eos ipsum est tempor dolor. Clita lorem kasd sed ea lorem diam ea lorem eirmod duo sit ipsum stet lorem diam</p>
-                    </div>
-                    <div class="position-relative mb-4">
-                        <span class="bi bi-arrow-right fs-4 text-light position-absolute" style="top: -5px; left: -50px;"></span>
-                        <h5 class="mb-1">Web Designer</h5>
-                        <p class="mb-2">Soft Company | <small>2000 - 2050</small></p>
-                        <p>Tempor eos dolore amet tempor dolor tempor. Dolore ea magna sit amet dolor eirmod. Eos ipsum est tempor dolor. Clita lorem kasd sed ea lorem diam ea lorem eirmod duo sit ipsum stet lorem diam</p>
-                    </div>
+                    {% endfor %}
                 </div>
             </section>
             <!-- Expericence End -->
 
-            <!-- Subscribe Start -->
-            <section class="wow fadeInUp" data-wow-delay="0.1s">
-                <div class="bg-secondary text-center p-5">
-                    <h1 class="text-white font-weight-bold">Subscribe My Newsletter</h1>
-                    <p class="text-white">Subscribe and get my latest article in your inbox</p>
-                    <div class="position-relative w-100">
-                        <input class="form-control bg-dark border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Subscribe</button>
-                    </div>
+            <!-- Education Start -->
+            <section class="py-5 wow fadeInUp" data-wow-delay="0.1s">
+                <h1 class="title pb-3 mb-5">{{ 'education.title' | trans({}, 'about_me') }}</h1>
+                <div class="border-start border-2 border-light pt-2 ps-5">
+                    {% for i in range (1,3) %}
+
+                        <div class="position-relative mb-4">
+                            <span class="bi bi-arrow-right fs-4 text-light position-absolute" style="top: -5px; left: -50px;"></span>
+                            {% set data = "%s.%s" | format('education.schools', i) %}
+                            <h5 class="mb-1">{{ "%s.%s" | format (data, 'name') | trans({}, 'about_me') }}</h5>
+                            <p class="mb-2"> <small>{{ "%s.%s" | format (data, 'dates') | trans({}, 'about_me') }}</small></p>
+                            <p>{{ "%s.%s" | format (data, 'description') | trans({}, 'about_me') | raw }}</p>
+                        </div>
+                    {% endfor %}
                 </div>
             </section>
-            <!-- Subscribe End -->
+            <!-- Education End -->
+
 
             <!-- Services Start -->
             <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
