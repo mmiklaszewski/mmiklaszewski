@@ -1,8 +1,16 @@
+about:
+  name: Maciej Miklaszewski
+  labels: Programista PHP, Elasticsearch, Symfony, OpenAI
+  github: https://github.com/mmiklaszewski
+  linkedin: https://www.linkedin.com/in/maciek-miklaszewski-583166178/
+  downloadCV: Pobierz CV
+  contactMe: Napisz do mnie
+
 about_me:
   title: O mnie
   description: "Nazywam się Maciek. Programuję od czasów studiów. Zawodowo od 2016 roku. Jestem absolwentem Uniwersytetu Śląskiego w Katowicach gdzie uzyskałem tytuł inżyniera.
-                Na codzień pracuję jako PHP Developer w oparciu o framework Symfony. Interesuje się technologiami, które mają praktyczne zastosowanie w rozwoju aplikacji webowych takimi jak Elasticsearch, OpenAI, RabbitMQ, Qdrant.
-                Prywatnie lubię majsterkować i jestem szczęśliwym ojcem półtorarocznego urwisa."
+                Na codzień pracuję jako PHP Developer w oparciu o framework Symfony. Interesuję się technologiami, które mają praktyczne zastosowanie w rozwoju aplikacji webowych takimi jak Elasticsearch, OpenAI, RabbitMQ, Qdrant.
+                Prywatnie lubię majsterkować i jestem szczęśliwym tatą półtorarocznego urwisa."
 
 
   information:
@@ -22,6 +30,12 @@ about_me:
 
 skills:
   title: Umiejętności
+  php: PHP (8.3, 7.2)
+  symfony: Symfony (3.4, 6.4)
+  rabbit_mq: RabbitMQ
+  elasticsearch: Elasticsearch
+  openai: OpenAI (GPT, Whisper, ADA)
+  linux: Korzystanie z systemu Linux
 
 experience:
   title: Doświadczenie
@@ -45,6 +59,9 @@ experience:
       name: SHG Przemysław Kudłacik
       description: "Miesiączna praktyka, wykonanie strony internetowej w oparciu o CMS Made Simple"
 
+cert:
+  aidevs:
+    title: Certyfikat AI_devs2
 
 education:
   title: Edukacja
@@ -66,3 +83,21 @@ education:
       dates: 2009 - 2012
       name: Liceum Ogólnokształcące im. Powstańców Śląskich
       description: "Profil: matematyczno - informatyczno - fizyczny"
+
+information:
+  php:
+    title: PHP
+    description: Po przeszło 7 latach pracy zawodowej jako programista PHP miałem styczność z wieloma problemami do rozwiązania.
+  symfony:
+    title: Symfony
+    description: W większości projektów nad którymi pracowałem korzystałem z Symfony aczkolwiek zdarzyło się mieć kontakt z Kohaną i autorskim rozwiązaniem.
+  team:
+    title: Zespół
+    description: W czasie swojej kariery zawodowej miałem okazję pracować z wieloma ludźmi tworząc zgrane zespoły.
+  database:
+    title: Bazy danych
+    description: W projektach nad którymi pracowałem miałem styczność z bazami takimi jak MySQL, Elasticsearch, Qdrant, MSSQL.
+
+hobby:
+  title: Zajęcia hobbystyczne
+  description: "Hobbistycznie pracuję nad prywatną asystentką aby zagłębić się w kolejne ciekawe technologie. Tworzę aplikację w oparciu o Symfony (obecnie 6.4) z integracją OpenAi (modele GPT, Whisper, ADA) a także z użyciem narzędzi takich jak Qdrant, Serper, dzięki którym rozszerzam funkcjonalność."
