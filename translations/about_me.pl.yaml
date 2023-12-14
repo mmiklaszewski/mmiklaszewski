@@ -68,7 +68,7 @@ education:
   schools:
     1:
       dates: 2013-2018
-      name: Uniwersytet Śląski
+      name: Uniwersytet Śląski w Katowicach
       description: "
         Kierunek: Informatyka <br>
         Specjalizacja: Projektowanie aplikacji webowych <br>
@@ -76,12 +76,12 @@ education:
 
     2:
       dates: 2012-2013
-      name: Wyższa Szkoła Informatyki i Zarządzania
+      name: Wyższa Szkoła Informatyki i Zarządzania w Bielsku Białej
       description: "Kierunek: informatyka"
 
     3:
       dates: 2009 - 2012
-      name: Liceum Ogólnokształcące im. Powstańców Śląskich
+      name: Liceum Ogólnokształcące im. Powstańców Śląskich w Bieruniu
       description: "Profil: matematyczno - informatyczno - fizyczny"
 
 information:
