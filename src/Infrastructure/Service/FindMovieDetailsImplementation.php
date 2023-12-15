@@ -6,7 +6,6 @@ use App\Domain\Client\ScraperClient;
 use App\Domain\Service\FindMovieDetails;
 use App\Domain\ValueObject\Link;
 use App\Domain\ValueObject\MovieDetails;
-use GuzzleHttp\Pool;
 
 final readonly class FindMovieDetailsImplementation implements FindMovieDetails
 {

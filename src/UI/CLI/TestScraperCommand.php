@@ -51,19 +51,20 @@ final class TestScraperCommand extends Command
             ->addArgument('title', InputArgument::REQUIRED, 'title')
         ;
     }
+
     public function execute(InputInterface $input, OutputInterface $output): int
     {
         $title = $input->getArgument('title');
         $category = MovieCategory::series();
 
-//        $wikiLink = $this->findMovieDetailsLink->search($title, $category);
+        //        $wikiLink = $this->findMovieDetailsLink->search($title, $category);
 
         $wikiLink = Link::fromString('https://pl.wikipedia.org/wiki/Gra_o_tron_(serial_telewizyjny)');
 
         $details = $this->findMovieDetails->getDetails($wikiLink);
-//        $filmwebLink = $this->findMovieLink->search($title, $category);
-//        $descriptions = $this->descriptionsService->getDescriptions($filmwebLink);
-//        dump($descriptions);
+        //        $filmwebLink = $this->findMovieLink->search($title, $category);
+        //        $descriptions = $this->descriptionsService->getDescriptions($filmwebLink);
+        //        dump($descriptions);
         dump($details);
 
         exit;
