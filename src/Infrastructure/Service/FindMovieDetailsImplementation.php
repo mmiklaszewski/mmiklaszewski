@@ -28,6 +28,13 @@ final readonly class FindMovieDetailsImplementation implements FindMovieDetails
         $movieDetails = [];
 
         foreach ($matches[0] as $match) {
+            $pattern = '/(<a[^>]*>)([^<]+)(<\/a>)/';
+            $replacement = '$1$2 $3';
+
+            $match = preg_replace($pattern, $replacement, $match);
+
+            $match = str_replace('<br>', ' ', $match);
+
             $data = \phpQuery::newDocument($match);
 
             /** @var ?\DOMElement $th */
@@ -40,7 +47,7 @@ final readonly class FindMovieDetailsImplementation implements FindMovieDetails
             }
 
             $thValue = trim(str_replace("\n", '', $th->nodeValue));
-            $tdValue = trim(str_replace("\n", ' ', $td->nodeValue));
+            $tdValue = trim(str_replace("\n", '', $td->nodeValue));
 
             $thValue = str_replace(["\u{A0}", "\u{200B}"], ' ', $thValue);
             $tdValue = str_replace(["\u{A0}", "\u{200B}"], ' ', $tdValue);
