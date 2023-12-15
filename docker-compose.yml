@@ -1,7 +1,10 @@
+version: '3.3'
 services:
   web:
     container_name: mmiklaszewski_web
     build: .
+    networks:
+      - app
     ports:
       - "3080:80"
     volumes:
@@ -14,11 +17,15 @@ services:
       MYSQL_DATABASE: app
       MYSQL_USER: dev
       MYSQL_PASSWORD: "SsGR9%H46J"
+    networks:
+      - app
     ports:
       - "3081:3306"
   phpmyadmin:
     container_name: mmiklaszewski_phpmyadmin
     image: phpmyadmin/phpmyadmin
+    networks:
+      - app
     ports:
       - '3082:80'
     environment:
@@ -28,5 +35,4 @@ services:
       - db
 
 networks:
-  default:
-    name: app
+    app:
