@@ -1,22 +1,24 @@
 <?php
 
-namespace App\Application\Query\GetMovieDescriptions;
+namespace App\Infrastructure\Service;
 
 use App\Domain\Client\ScraperClient;
 use App\Domain\Collection\MovieDescriptionCollection;
+use App\Domain\Service\FindMovieDescriptions;
+use App\Domain\ValueObject\Link;
 use App\Domain\ValueObject\MovieDescription;
-use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 
-#[AsMessageHandler]
-final readonly class GetMovieDescriptionsHandler
+final readonly class FindMovieServicesImplementation implements FindMovieDescriptions
 {
     public function __construct(private ScraperClient $scraperClient)
     {
     }
 
-    public function __invoke(GetMovieDescriptionsQuery $query): MovieDescriptionCollection
+    #[\Override]
+    public function getDescriptions(Link $link): MovieDescriptionCollection
     {
-        $result = $this->scraperClient->scrap($query->descriptionsLink);
+        $link = Link::fromString(sprintf('%s/descs', $link->toString()));
+        $result = $this->scraperClient->scrap($link);
         $descriptions = MovieDescriptionCollection::create();
 
         if (empty($result->html)) {

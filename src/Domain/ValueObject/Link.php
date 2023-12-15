@@ -9,7 +9,7 @@ final readonly class Link
     public function __construct(string $domain)
     {
         $domain = self::addPrefix($domain);
-        $this->domain = strtolower($domain);
+        $this->domain = $domain;
     }
 
     public static function fromString(string $domain): self
@@ -48,6 +48,6 @@ final readonly class Link
 
     public function equal(Link $domain): bool
     {
-        return $domain->toString() === $this->toString();
+        return mb_strtolower($domain->toString()) === mb_strtolower($this->toString());
     }
 }
