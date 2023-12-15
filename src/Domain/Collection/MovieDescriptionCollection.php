@@ -5,7 +5,7 @@ namespace App\Domain\Collection;
 use App\Domain\ValueObject\MovieDescription;
 use Assert\Assertion;
 
-final class MovieDescriptionCollection extends \ArrayIterator
+final class MovieDescriptionCollection extends \ArrayIterator implements \JsonSerializable
 {
     public function __construct(array $array = [])
     {
@@ -22,5 +22,17 @@ final class MovieDescriptionCollection extends \ArrayIterator
     {
         Assertion::isInstanceOf($value, MovieDescription::class);
         parent::append($value);
+    }
+
+    #[\Override]
+    public function jsonSerialize(): array
+    {
+        $data = [];
+        /** @var MovieDescription $description */
+        foreach ($this as $description) {
+            $data[] = $description->description;
+        }
+
+        return $data;
     }
 }

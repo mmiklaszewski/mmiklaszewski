@@ -8,7 +8,7 @@ use App\Domain\Service\FindMovieDescriptions;
 use App\Domain\ValueObject\Link;
 use App\Domain\ValueObject\MovieDescription;
 
-final readonly class FindMovieServicesImplementation implements FindMovieDescriptions
+final readonly class FindMovieDescriptionsImplementation implements FindMovieDescriptions
 {
     public function __construct(private ScraperClient $scraperClient)
     {
