@@ -11,12 +11,15 @@ services:
       - .:/var/www/html
   db:
     container_name: mmiklaszewski_db
-    image: mysql:5.7
+    image: mysql:8.0
     environment:
-      MYSQL_ROOT_PASSWORD: pass
-      MYSQL_DATABASE: app
-      MYSQL_USER: dev
-      MYSQL_PASSWORD: "SsGR9%H46J"
+      - MYSQL_DATABASE=app
+      - MYSQL_USER=db_user
+      - MYSQL_PASSWORD_FILE=/run/secrets/db_password
+      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db_root_password
+    secrets:
+      - db_password
+      - db_root_password
     networks:
       - app
     ports:
@@ -28,11 +31,21 @@ services:
       - app
     ports:
       - '3082:80'
+    secrets:
+      - db_password
+      - db_root_password
     environment:
       PMA_HOSTS: db
-      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_PASSWORD_FILE: /run/secrets/db_password
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
     links:
       - db
 
 networks:
     app:
+
+secrets:
+  db_password:
+    file: docker/secrets/database_password.txt
+  db_root_password:
+    file: docker/secrets/database_password.txt
