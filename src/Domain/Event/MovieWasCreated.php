@@ -10,7 +10,8 @@ final readonly class MovieWasCreated
     public function __construct(
         public Uuid $uuid,
         public string $title,
-        public MovieCategory $category
+        public MovieCategory $category,
+        public string $preferences
     ) {
     }
 }

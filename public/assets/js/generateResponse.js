@@ -11,14 +11,46 @@ $("button[type=submit]").click(function() {
     $(this).attr("clicked", "true");
 });
 
+function checkFieldsAndInput() {
+    var titleField = document.getElementById('title');
+    var preferencesField = document.getElementById('preferences');
+
+    var searchMovieButton = $('#search_movie');
+    var searchSeriesButton = $('#search_series');
+
+    var isTitleValid = checkInput('title', 1, 100);
+    var isPreferencesValid = checkInput('preferences', 1, 300);
+
+    if (titleField.value.trim() !== '' && preferencesField.value.trim() !== '' && isTitleValid && isPreferencesValid) {
+        searchMovieButton.prop('disabled', false);
+        searchSeriesButton.prop('disabled', false);
+    } else {
+        searchMovieButton.prop('disabled', true);
+        searchSeriesButton.prop('disabled', true);
+    }
+}
+
+function checkInput(id, min, max) {
+    var element = document.getElementById(id);
+    var isValid = element.value.length >= min && element.value.length <= max;
+
+    if (isValid) {
+        element.classList.add("is-valid");
+        element.classList.remove("is-invalid");
+    } else {
+        element.classList.remove("is-valid");
+        element.classList.add("is-invalid");
+    }
+
+    return isValid;
+}
+
 function submitForm(clickedButtonValue) {
-
-
     var formData = {
         'title': $('#title').val(),
-        'category': clickedButtonValue
+        'category': clickedButtonValue,
+        'preferences': $('#preferences').val(),
     };
-
 
     $.ajax({
         type: 'POST',
@@ -33,7 +65,7 @@ function submitForm(clickedButtonValue) {
         }
     })
         .done(function(data) {
-            console.log(data);
+
             window.location.href = data.resultUrl;
 
         })

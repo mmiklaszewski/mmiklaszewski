@@ -16,12 +16,14 @@ title:
   label: Tytuł
   placeholder: Podaj tytuł jaki Cię interesuje
 
+preferences:
+  label: Preferencje
+  placeholder: Opisz swoje preferencje filmowe, zostaną użyte podczas oceny dopasowania filmu
+
 search:
   movie: Poszukaj filmu
   series: Poszukaj serialu
 
-
-
 result:
   title: Wynik Recenzenta
-  resultTitle: Poszukiwany film %title% (%category%)
+  resultTitle: Poszukiwany program %title% (%category%)

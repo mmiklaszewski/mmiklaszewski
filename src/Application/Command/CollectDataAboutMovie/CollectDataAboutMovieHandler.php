@@ -27,7 +27,7 @@ final readonly class CollectDataAboutMovieHandler
     public function __invoke(CollectDataAboutMovieCommand $command): void
     {
         $this->dispatcher->dispatch(
-            new MovieWasCreated($command->uuid, $command->title, $command->category)
+            new MovieWasCreated($command->uuid, $command->title, $command->category, $command->preferences)
         );
 
         $wikiLink = $this->findMovieDetailsLink->search($command->title, $command->category);

@@ -31,11 +31,11 @@ final class AppController extends AbstractController
         RouterInterface $router
     ): JsonResponse {
 
-        return new JsonResponse(
-            [
-                'resultUrl' => $router->generate('result', ['resultUuid' => Uuid::fromString('a76bde64-ab77-4905-b124-8d1658d7f30a')]),
-            ]
-        );
+//        return new JsonResponse(
+//            [
+//                'resultUrl' => $router->generate('result', ['resultUuid' => Uuid::fromString('a76bde64-ab77-4905-b124-8d1658d7f30a')]),
+//            ]
+//        );
 
         try {
             $uuid = Uuid::v4();
@@ -49,6 +49,7 @@ final class AppController extends AbstractController
                 ]
             );
         } catch (\Throwable $throwable) {
+
             return new JsonResponse(sprintf('Exception: %s', $throwable->getMessage()));
         }
     }

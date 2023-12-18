@@ -12,11 +12,15 @@
                 <form id="generate-response" action="{{ path('generate-response') }}">
                     <div class="form-group">
                         <label for="title">{{ 'title.label' |trans({}, 'app') }}</label>
-                        <input type="text" class="form-control" style="color: black" id="title" placeholder="{{ 'title.placeholder' |trans({}, 'app') }}">
+                        <input type="text" class="form-control" style="color: black" id="title" placeholder="{{ 'title.placeholder' |trans({}, 'app') }}" onkeyup="checkFieldsAndInput()">
                     </div>
                     <div class="form-group">
-                        <button id="search_movie" class="btn btn-primary mt-2" type="submit" value="movie">{{ 'search.movie' |trans({}, 'app') }}</button>
-                        <button id="search_series" class="float-end btn btn-warning mt-2" type="submit" value="series">{{ 'search.series' |trans({}, 'app') }}</button>
+                        <label for="preferences">{{ 'preferences.label' |trans({}, 'app') }}</label>
+                        <textarea class="form-control" style="color: black" id="preferences" placeholder="{{ 'preferences.placeholder' |trans({}, 'app') }}" onkeyup="checkFieldsAndInput()"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button disabled id="search_movie" class="btn btn-primary mt-2" type="submit" value="movie">{{ 'search.movie' |trans({}, 'app') }}</button>
+                        <button disabled id="search_series" class="float-end btn btn-warning mt-2" type="submit" value="series">{{ 'search.series' |trans({}, 'app') }}</button>
                     </div>
                 </form>
             </section>

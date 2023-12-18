@@ -29,6 +29,7 @@ final readonly class MovieProjection
         $entity->setUuid($event->uuid);
         $entity->setTitle($event->title);
         $entity->setCategory($event->category->jsonSerialize());
+        $entity->setPreferences($event->preferences);
 
         $this->movieRepository->save($entity);
     }

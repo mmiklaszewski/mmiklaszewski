@@ -11,7 +11,8 @@ final readonly class CollectDataAboutMovieCommand
     public function __construct(
         public Uuid $uuid,
         public string $title,
-        public MovieCategory $category
+        public MovieCategory $category,
+        public string $preferences
     ) {
     }
 
@@ -20,7 +21,8 @@ final readonly class CollectDataAboutMovieCommand
         return new self(
             $uuid,
             $input->title,
-            MovieCategory::fromString($input->category)
+            MovieCategory::fromString($input->category),
+            $input->preferences
         );
 
     }

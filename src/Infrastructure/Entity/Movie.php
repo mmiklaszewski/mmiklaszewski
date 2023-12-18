@@ -36,6 +36,15 @@ class Movie
     #[ORM\Column(type: 'json', nullable: true)]
     private ?array $descriptions = [];
 
+    #[ORM\Column(type: 'text', nullable: true)]
+    private ?string $review = null;
+
+    #[ORM\Column(type: 'text', nullable: true)]
+    private ?string $preferences = null;
+
+    #[ORM\Column(type: 'text', nullable: true)]
+    private ?string $preferencesRating = null;
+
     #[ORM\Column(type: 'datetime', options: ['default' => 'CURRENT_TIMESTAMP'])]
     private ?\DateTime $createdAt = null;
 
@@ -122,6 +131,36 @@ class Movie
     public function setDescriptions(?array $descriptions): void
     {
         $this->descriptions = $descriptions;
+    }
+
+    public function getReview(): ?string
+    {
+        return $this->review;
+    }
+
+    public function setReview(?string $review): void
+    {
+        $this->review = $review;
+    }
+
+    public function getPreferences(): ?string
+    {
+        return $this->preferences;
+    }
+
+    public function setPreferences(?string $preferences): void
+    {
+        $this->preferences = $preferences;
+    }
+
+    public function getPreferencesRating(): ?string
+    {
+        return $this->preferencesRating;
+    }
+
+    public function setPreferencesRating(?string $preferencesRating): void
+    {
+        $this->preferencesRating = $preferencesRating;
     }
 
     public function getCreatedAt(): ?\DateTime

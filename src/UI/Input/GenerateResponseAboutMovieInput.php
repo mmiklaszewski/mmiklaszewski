@@ -14,7 +14,11 @@ final readonly class GenerateResponseAboutMovieInput
 
         #[Assert\NotBlank]
         #[Assert\Choice(callback: [MovieCategory::class, 'available'])]
-        public string $category
+        public string $category,
+
+        #[Assert\NotBlank]
+        #[Assert\Length(min: 1, max: 300)]
+        public string $preferences
     ) {
     }
 }
