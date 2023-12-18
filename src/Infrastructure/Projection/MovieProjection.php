@@ -5,6 +5,7 @@ namespace App\Infrastructure\Projection;
 use App\Domain\Event\AIReviewWasGenerated;
 use App\Domain\Event\MovieDescriptionsWereCollected;
 use App\Domain\Event\MovieDetailsWereCollected;
+use App\Domain\Event\MoviePosterWasCollected;
 use App\Domain\Event\MovieWasCreated;
 use App\Domain\ReadModel\MovieReadModel;
 use App\Infrastructure\Entity\Movie;
@@ -15,6 +16,7 @@ use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 #[AsEventListener(event: MovieWasCreated::class, method: 'projectWhenMovieWasCreated')]
 #[AsEventListener(event: MovieDetailsWereCollected::class, method: 'projectWhenMovieDetailsWereCollected')]
 #[AsEventListener(event: MovieDescriptionsWereCollected::class, method: 'projectWhenMovieDescriptionsWereCollected')]
+#[AsEventListener(event: MoviePosterWasCollected::class, method: 'projectWhenMoviePosterWasCollected')]
 #[AsEventListener(event: AIReviewWasGenerated::class, method: 'projectWhenAIReviewWasGenerated')]
 final readonly class MovieProjection
 {
@@ -51,6 +53,14 @@ final readonly class MovieProjection
         $entity = $this->movieReadModel->find($event->uuid);
         $entity->setDescriptionsLink($event->link->toString());
         $entity->setDescriptions($event->descriptionCollection->jsonSerialize());
+        $this->movieRepository->save($entity);
+    }
+
+    #[NoReturn]
+    public function projectWhenMoviePosterWasCollected(MoviePosterWasCollected $event): void
+    {
+        $entity = $this->movieReadModel->find($event->uuid);
+        $entity->setPosterLink($event->link->toString());
         $this->movieRepository->save($entity);
     }
 

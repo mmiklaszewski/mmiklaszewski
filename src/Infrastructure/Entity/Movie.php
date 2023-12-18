@@ -42,6 +42,9 @@ class Movie
     #[ORM\Column(type: 'text', nullable: true)]
     private ?string $preferences = null;
 
+    #[ORM\Column(type: 'text', nullable: true)]
+    private ?string $posterLink = null;
+
     #[ORM\Column(type: 'datetime', options: ['default' => 'CURRENT_TIMESTAMP'])]
     private ?\DateTime $createdAt = null;
 
@@ -148,6 +151,16 @@ class Movie
     public function setPreferences(?string $preferences): void
     {
         $this->preferences = $preferences;
+    }
+
+    public function getPosterLink(): ?string
+    {
+        return $this->posterLink;
+    }
+
+    public function setPosterLink(?string $posterLink): void
+    {
+        $this->posterLink = $posterLink;
     }
 
     public function getCreatedAt(): ?\DateTime

@@ -8,7 +8,15 @@
                 <h1 class="title pb-3 mb-5">{{ 'result.title'|trans({}, 'app') }}</h1>
                 <p>{{ 'result.resultTitle'|trans({'%title%' : view.title, '%category%':  ('movieCategory.' ~ view.category) | trans({}, 'app') }, 'app') | raw }}</p>
             </section>
-            <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
+            <section class="py-5 wow fadeInUp" data-wow-delay="0.1s">
+
+                {% if view.poster is not null %}
+                    <div id="poster" class="text-center">
+
+                        <img src="{{ view.poster }}">
+                    </div>
+                {% endif %}
+
                 <table class="table">
                     <tbody>
                     <tr>

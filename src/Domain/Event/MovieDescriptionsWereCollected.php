@@ -11,7 +11,7 @@ final class MovieDescriptionsWereCollected
     public function __construct(
         public Uuid $uuid,
         public Link $link,
-        public MovieDescriptionCollection $descriptionCollection
+        public MovieDescriptionCollection $descriptionCollection,
     ) {
     }
 }

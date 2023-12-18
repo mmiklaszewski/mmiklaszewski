@@ -60,13 +60,11 @@ final readonly class GenerateReviewHandler
 
         $aiMovieReview = AIMovieReview::fromString($result);
 
-
         $this->dispatcher->dispatch(
             new AIReviewWasGenerated(
                 $command->movie,
                 $aiMovieReview
             )
         );
-
     }
 }

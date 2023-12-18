@@ -3,6 +3,7 @@
 namespace App\Application\Query\GetResult;
 
 use App\Domain\ValueObject\AIMovieReview;
+use App\Domain\ValueObject\Link;
 use App\Domain\ValueObject\MovieCategory;
 use App\Infrastructure\Entity\Movie;
 use Symfony\Component\Uid\Uuid;
@@ -15,7 +16,8 @@ final readonly class ResultView implements \JsonSerializable
         public MovieCategory $category,
         public ?string $description,
         public ?string $details,
-        public string $preferences
+        public string $preferences,
+        public ?Link $poster,
     ) {
     }
 
@@ -29,8 +31,8 @@ final readonly class ResultView implements \JsonSerializable
             MovieCategory::fromString($movie->getCategory()),
             $review->description,
             $review->details,
-            $review->preferences
-
+            $review->preferences,
+            $movie->getPosterLink() ? Link::fromString($movie->getPosterLink()) : null
         );
     }
 
@@ -44,6 +46,7 @@ final readonly class ResultView implements \JsonSerializable
             'description' => $this->description,
             'details' => $this->details,
             'preferences' => $this->preferences,
+            'poster' => $this->poster?->toString(),
         ];
     }
 }

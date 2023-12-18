@@ -4,11 +4,13 @@ namespace App\Application\Command\CollectDataAboutMovie;
 
 use App\Domain\Event\MovieDescriptionsWereCollected;
 use App\Domain\Event\MovieDetailsWereCollected;
+use App\Domain\Event\MoviePosterWasCollected;
 use App\Domain\Event\MovieWasCreated;
 use App\Domain\Service\FindMovieDescriptions;
 use App\Domain\Service\FindMovieDetails;
 use App\Domain\Service\FindMovieDetailsLink;
 use App\Domain\Service\FindMovieLink;
+use App\Domain\Service\FindMoviePoster;
 use Psr\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 
@@ -20,6 +22,7 @@ final readonly class CollectDataAboutMovieHandler
         private FindMovieDetails $findMovieDetails,
         private FindMovieLink $findMovieLink,
         private FindMovieDescriptions $findMovieDescriptions,
+        private FindMoviePoster $findMoviePoster,
         private EventDispatcherInterface $dispatcher
     ) {
     }
@@ -43,5 +46,12 @@ final readonly class CollectDataAboutMovieHandler
         $this->dispatcher->dispatch(
             new MovieDescriptionsWereCollected($command->uuid, $filmWebLink, $descriptions)
         );
+
+        $posterLink = $this->findMoviePoster->getPoster($filmWebLink);
+        if (!empty($posterLink)) {
+            $this->dispatcher->dispatch(
+                new MoviePosterWasCollected($command->uuid, $posterLink)
+            );
+        }
     }
 }

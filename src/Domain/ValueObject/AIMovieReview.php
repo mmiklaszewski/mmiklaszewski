@@ -29,10 +29,12 @@ final readonly class AIMovieReview implements \JsonSerializable
         $details = $data['details'] ?? null;
         $preferences = $data['preferences'] ?? null;
         $raw = $data['raw'];
+
         return new self($description, $details, $preferences, $raw);
     }
 
-    #[\Override] public function jsonSerialize(): array
+    #[\Override]
+    public function jsonSerialize(): array
     {
         return [
             'description' => $this->description,
