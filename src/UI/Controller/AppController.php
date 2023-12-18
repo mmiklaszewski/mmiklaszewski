@@ -4,6 +4,7 @@ namespace App\UI\Controller;
 
 use App\Application\Command\CollectDataAboutMovie\CollectDataAboutMovieCommand;
 use App\Application\Command\CommandBus;
+use App\Application\Command\GenerateReview\GenerateReviewCommand;
 use App\Application\Query\GetResult\GetResultQuery;
 use App\Application\Query\QueryBus;
 use App\UI\Input\GenerateResponseAboutMovieInput;
@@ -30,17 +31,16 @@ final class AppController extends AbstractController
         CommandBus $commandBus,
         RouterInterface $router
     ): JsonResponse {
-
-//        return new JsonResponse(
-//            [
-//                'resultUrl' => $router->generate('result', ['resultUuid' => Uuid::fromString('a76bde64-ab77-4905-b124-8d1658d7f30a')]),
-//            ]
-//        );
-
         try {
             $uuid = Uuid::v4();
             $commandBus->handle(
                 CollectDataAboutMovieCommand::fromInput($uuid, $input)
+            );
+
+            $commandBus->handle(
+                new GenerateReviewCommand(
+                    Uuid::fromString($uuid)
+                )
             );
 
             return new JsonResponse(
@@ -49,7 +49,6 @@ final class AppController extends AbstractController
                 ]
             );
         } catch (\Throwable $throwable) {
-
             return new JsonResponse(sprintf('Exception: %s', $throwable->getMessage()));
         }
     }

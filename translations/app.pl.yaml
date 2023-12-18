@@ -26,4 +26,7 @@ search:
 
 result:
   title: Wynik Recenzenta
-  resultTitle: Poszukiwany program %title% (%category%)
+  resultTitle: 'Poszukiwany %category%: %title%'
+  description: O programie
+  details: Szczegóły
+  preferences: Ocena recenzenta

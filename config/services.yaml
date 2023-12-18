@@ -3,12 +3,12 @@ parameters:
 
 
 services:
-
     _defaults:
         autowire: true
         autoconfigure: true
         bind:
             $serperToken: '%env(SERPER_TOKEN)%'
+            $openAiToken: '%env(OPEN_AI_TOKEN)%'
 
     App\:
         resource: '../src/'

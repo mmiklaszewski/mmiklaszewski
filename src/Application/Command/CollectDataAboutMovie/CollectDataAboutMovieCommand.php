@@ -24,6 +24,5 @@ final readonly class CollectDataAboutMovieCommand
             MovieCategory::fromString($input->category),
             $input->preferences
         );
-
     }
 }

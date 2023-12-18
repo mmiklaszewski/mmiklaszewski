@@ -60,14 +60,14 @@ function submitForm(clickedButtonValue) {
         encode: true,
         beforeSend: function() {
             $('#title').prop('disabled', true);
+            $('#preferences').prop('disabled', true);
             $('#search_movie').prop('disabled', true);
             $('#search_series').prop('disabled', true);
+            $('#search_'+clickedButtonValue).append(' <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>')
         }
     })
         .done(function(data) {
-
             window.location.href = data.resultUrl;
-
         })
         .fail(function(error) {
             $('#title').prop('disabled', false);

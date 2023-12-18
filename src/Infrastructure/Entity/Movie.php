@@ -36,14 +36,11 @@ class Movie
     #[ORM\Column(type: 'json', nullable: true)]
     private ?array $descriptions = [];
 
-    #[ORM\Column(type: 'text', nullable: true)]
-    private ?string $review = null;
+    #[ORM\Column(type: 'json', nullable: true)]
+    private ?array $review = null;
 
     #[ORM\Column(type: 'text', nullable: true)]
     private ?string $preferences = null;
-
-    #[ORM\Column(type: 'text', nullable: true)]
-    private ?string $preferencesRating = null;
 
     #[ORM\Column(type: 'datetime', options: ['default' => 'CURRENT_TIMESTAMP'])]
     private ?\DateTime $createdAt = null;
@@ -51,7 +48,7 @@ class Movie
     #[ORM\Column(type: 'datetime', options: ['default' => 'CURRENT_TIMESTAMP'])]
     private ?\DateTime $updatedAt = null;
 
-    // todo who (by code), preferences, ai response, rating-preferences, where to watch
+    // todo who (by code). where to watch
 
     public function getId(): ?int
     {
@@ -133,12 +130,12 @@ class Movie
         $this->descriptions = $descriptions;
     }
 
-    public function getReview(): ?string
+    public function getReview(): ?array
     {
         return $this->review;
     }
 
-    public function setReview(?string $review): void
+    public function setReview(?array $review): void
     {
         $this->review = $review;
     }
@@ -151,16 +148,6 @@ class Movie
     public function setPreferences(?string $preferences): void
     {
         $this->preferences = $preferences;
-    }
-
-    public function getPreferencesRating(): ?string
-    {
-        return $this->preferencesRating;
-    }
-
-    public function setPreferencesRating(?string $preferencesRating): void
-    {
-        $this->preferencesRating = $preferencesRating;
     }
 
     public function getCreatedAt(): ?\DateTime

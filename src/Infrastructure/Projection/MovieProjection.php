@@ -2,6 +2,7 @@
 
 namespace App\Infrastructure\Projection;
 
+use App\Domain\Event\AIReviewWasGenerated;
 use App\Domain\Event\MovieDescriptionsWereCollected;
 use App\Domain\Event\MovieDetailsWereCollected;
 use App\Domain\Event\MovieWasCreated;
@@ -14,6 +15,7 @@ use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 #[AsEventListener(event: MovieWasCreated::class, method: 'projectWhenMovieWasCreated')]
 #[AsEventListener(event: MovieDetailsWereCollected::class, method: 'projectWhenMovieDetailsWereCollected')]
 #[AsEventListener(event: MovieDescriptionsWereCollected::class, method: 'projectWhenMovieDescriptionsWereCollected')]
+#[AsEventListener(event: AIReviewWasGenerated::class, method: 'projectWhenAIReviewWasGenerated')]
 final readonly class MovieProjection
 {
     public function __construct(
@@ -49,6 +51,14 @@ final readonly class MovieProjection
         $entity = $this->movieReadModel->find($event->uuid);
         $entity->setDescriptionsLink($event->link->toString());
         $entity->setDescriptions($event->descriptionCollection->jsonSerialize());
+        $this->movieRepository->save($entity);
+    }
+
+    #[NoReturn]
+    public function projectWhenAIReviewWasGenerated(AIReviewWasGenerated $event): void
+    {
+        $entity = $this->movieReadModel->find($event->uuid);
+        $entity->setReview($event->review->jsonSerialize());
         $this->movieRepository->save($entity);
     }
 }

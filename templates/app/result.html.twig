@@ -8,18 +8,24 @@
                 <h1 class="title pb-3 mb-5">{{ 'result.title'|trans({}, 'app') }}</h1>
                 <p>{{ 'result.resultTitle'|trans({'%title%' : view.title, '%category%':  ('movieCategory.' ~ view.category) | trans({}, 'app') }, 'app') | raw }}</p>
             </section>
-{#            <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">#}
-{#                <form id="generate-response" action="{{ path('generate-response') }}">#}
-{#                    <div class="form-group">#}
-{#                        <label for="title">{{ 'title.label' |trans({}, 'app') }}</label>#}
-{#                        <input type="text" class="form-control" style="color: black" id="title" placeholder="{{ 'title.placeholder' |trans({}, 'app') }}">#}
-{#                    </div>#}
-{#                    <div class="form-group">#}
-{#                        <button class="btn btn-primary mt-2" type="submit" value="movie">{{ 'search.movie' |trans({}, 'app') }}</button>#}
-{#                        <button class="float-end btn btn-warning mt-2" type="submit" value="series">{{ 'search.series' |trans({}, 'app') }}</button>#}
-{#                    </div>#}
-{#                </form>#}
-{#            </section>#}
+            <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <td class="w-25">{{ 'result.description'|trans({}, 'app') }}</td>
+                        <td>{{ view.description }}</td>
+                    </tr>
+                    <tr>
+                        <td class="w-25">{{ 'result.details'|trans({}, 'app') }}</td>
+                        <td>{{ view.details }}</td>
+                    </tr>
+                    <tr>
+                        <td class="w-25">{{ 'result.preferences'|trans({}, 'app') }}</td>
+                        <td>{{ view.preferences }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </section>
         </div>
         <div class="col-lg-2"></div>
     </div>

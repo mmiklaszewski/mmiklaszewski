@@ -17,7 +17,5 @@ final readonly class GetResultHandler
         $entity = $this->movieReadModel->find($query->resultUuid);
 
         return ResultView::fromEntity($entity);
-
     }
-
 }
