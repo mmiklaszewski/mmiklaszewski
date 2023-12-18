@@ -34,15 +34,14 @@ final readonly class CollectDataAboutMovieHandler
         $details = $this->findMovieDetails->getDetails($wikiLink);
 
         $this->dispatcher->dispatch(
-            new MovieDetailsWereCollected( $command->uuid, $wikiLink, $details)
+            new MovieDetailsWereCollected($command->uuid, $wikiLink, $details)
         );
 
-        $filmwebLink = $this->findMovieLink->search($command->title, $command->category);
-        $descriptions = $this->findMovieDescriptions->getDescriptions($filmwebLink);
+        $filmWebLink = $this->findMovieLink->search($command->title, $command->category);
+        $descriptions = $this->findMovieDescriptions->getDescriptions($filmWebLink);
 
         $this->dispatcher->dispatch(
-            new MovieDescriptionsWereCollected($command->uuid, $filmwebLink, $descriptions)
+            new MovieDescriptionsWereCollected($command->uuid, $filmWebLink, $descriptions)
         );
     }
-
 }

@@ -1,3 +1,27 @@
 movieCategory:
   series: serial
   movie: film
+
+
+about:
+  title: AI Recenzent
+  description: "
+  Witaj! Jestem tutaj by poszukać, opisać, ocenić na podstawie Twoich preferencji film lub serial <br> 
+  a także doradzić gdzie możesz go obejrzeć.
+  <br> <br>
+  
+  Wystarczy że uzupełnisz dane poniżej."
+
+title:
+  label: Tytuł
+  placeholder: Podaj tytuł jaki Cię interesuje
+
+search:
+  movie: Poszukaj filmu
+  series: Poszukaj serialu
+
+
+
+result:
+  title: Wynik Recenzenta
+  resultTitle: Poszukiwany film %title% (%category%)

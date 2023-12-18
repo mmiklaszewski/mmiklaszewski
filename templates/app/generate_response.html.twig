@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %}
+{% block content %}
+<div class="container">
+    <div class="row g-5">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+            <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
+                <h1 class="title pb-3 mb-5">{{ 'about.title'|trans({}, 'app') }}</h1>
+                <p>{{ 'about.description'|trans({}, 'app') | raw }}</p>
+            </section>
+            <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
+                <form id="generate-response" action="{{ path('generate-response') }}">
+                    <div class="form-group">
+                        <label for="title">{{ 'title.label' |trans({}, 'app') }}</label>
+                        <input type="text" class="form-control" style="color: black" id="title" placeholder="{{ 'title.placeholder' |trans({}, 'app') }}">
+                    </div>
+                    <div class="form-group">
+                        <button id="search_movie" class="btn btn-primary mt-2" type="submit" value="movie">{{ 'search.movie' |trans({}, 'app') }}</button>
+                        <button id="search_series" class="float-end btn btn-warning mt-2" type="submit" value="series">{{ 'search.series' |trans({}, 'app') }}</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ asset('assets/js/generateResponse.js') }}"></script>
+{% endblock %}

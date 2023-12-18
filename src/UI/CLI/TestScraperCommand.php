@@ -27,28 +27,12 @@ use Symfony\Component\Uid\Uuid;
 )]
 final class TestScraperCommand extends Command
 {
-    private FindMovieDescriptions $descriptionsService;
-    private SearchInNetworkClient $searchInNetworkClient;
-    private FindMovieLink $findMovieLink;
-    private FindMovieDetails $findMovieDetails;
-    private FindMovieDetailsLink $findMovieDetailsLink;
-    private CommandBus $commandBus;
 
     public function __construct(
-        FindMovieDescriptions $descriptionsService,
-        SearchInNetworkClient $searchInNetworkClient,
-        FindMovieLink $findMovieLink,
-        FindMovieDetails $findMovieDetails,
-        FindMovieDetailsLink $findMovieDetailsLink,
-        CommandBus $commandBus
+
     ) {
         parent::__construct();
-        $this->descriptionsService = $descriptionsService;
-        $this->searchInNetworkClient = $searchInNetworkClient;
-        $this->findMovieLink = $findMovieLink;
-        $this->findMovieDetails = $findMovieDetails;
-        $this->findMovieDetailsLink = $findMovieDetailsLink;
-        $this->commandBus = $commandBus;
+
     }
 
     protected function configure(): void
@@ -61,53 +45,6 @@ final class TestScraperCommand extends Command
 
     public function execute(InputInterface $input, OutputInterface $output): int
     {
-        $title = $input->getArgument('title');
-        $category = MovieCategory::fromString($input->getArgument('category'));
-
-
-        $this->commandBus->handle(
-            new CollectDataAboutMovieCommand(
-                Uuid::v4(),
-                $title,
-                $category
-            )
-        );
-
-
-        die();
-
-
-        //        $wikiLink = $this->findMovieDetailsLink->search($title, $category);
-
-        $wikiLink = Link::fromString('https://pl.wikipedia.org/wiki/Gra_o_tron_(serial_telewizyjny)');
-
-        $details = $this->findMovieDetails->getDetails($wikiLink);
-        //        $filmwebLink = $this->findMovieLink->search($title, $category);
-        //        $descriptions = $this->descriptionsService->getDescriptions($filmwebLink);
-        //        dump($descriptions);
-        dump($details);
-
-        exit;
-
-        $details = $this->findMovieDetails->getDetails(Link::fromString('https://pl.wikipedia.org/wiki/Titanic_(film_1997)'));
-        dump($details);
-
-        exit;
-
-        $movieLink = $this->findMovieLink->search('breaking bad', MovieCategory::series());
-
-        dump($movieLink);
-
-        $descLink = Link::fromString(sprintf('%s/descs', $movieLink->toString()));
-
-        $descriptions = $this->descriptionsService->getDescriptions($descLink);
-
-        /** @var MovieDescription $description */
-        foreach ($descriptions as $description) {
-            dump($description->description);
-        }
-
-        dump($descriptions);
 
         return Command::SUCCESS;
     }

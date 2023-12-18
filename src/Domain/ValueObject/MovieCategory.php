@@ -36,4 +36,9 @@ final readonly class MovieCategory implements \JsonSerializable
     {
         return $this->category;
     }
+
+    public static function available(): array
+    {
+        return [self::MOVIE, self::SERIES];
+    }
 }
