@@ -24,6 +24,8 @@ services:
       - app
     ports:
       - "3081:3306"
+    volumes:
+      - db:/var/lib/mysql
   phpmyadmin:
     container_name: mmiklaszewski_phpmyadmin
     image: phpmyadmin/phpmyadmin
@@ -48,3 +50,7 @@ secrets:
     file: docker/secrets/database_root_password.txt
   db_password_1:
     file: docker/secrets/database_password.txt
+
+volumes:
+  db:
+    driver: local
