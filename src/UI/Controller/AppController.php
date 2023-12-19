@@ -22,6 +22,8 @@ final class AppController extends AbstractController
     #[Route('/{_locale<%app.supported_locales%>}/app', name: 'app', methods: ['GET'])]
     public function index(): Response
     {
+        //tmp
+        return $this->redirectToRoute('homepage', ['_locale' => 'pl']);
         return $this->render('app/generate_response.html.twig');
     }
 
@@ -31,6 +33,7 @@ final class AppController extends AbstractController
         CommandBus $commandBus,
         RouterInterface $router
     ): JsonResponse {
+        return new JsonResponse('in progress');
         try {
             $uuid = Uuid::v4();
             $commandBus->handle(
@@ -58,6 +61,8 @@ final class AppController extends AbstractController
         Request $request,
         QueryBus $queryBus
     ): Response {
+        //tmp
+        return $this->redirectToRoute('homepage', ['_locale' => 'pl']);
         try {
             $uuid = Uuid::fromString($request->get('resultUuid'));
 
