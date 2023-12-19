@@ -1,27 +1,51 @@
-web:
-  container_name: mmiklaszewski_web
-  build: .
-  ports:
-    - "3080:80"
-  volumes:
-    - .:/var/www/html
-db:
-  container_name: mmiklaszewski_db
-  image: mysql:5.7
-  environment:
-    MYSQL_ROOT_PASSWORD: pass
-    MYSQL_DATABASE: app
-    MYSQL_USER: dev
-    MYSQL_PASSWORD: "SsGR9%H46J"
-  ports:
-    - "3081:3306"
-phpmyadmin:
-  container_name: mmiklaszewski_phpmyadmin
-  image: phpmyadmin/phpmyadmin
-  ports:
-    - '3082:80'
-  environment:
-    PMA_HOSTS: db
-    MYSQL_ROOT_PASSWORD: pass
-  links:
-    - db
+version: '3.3'
+services:
+  web:
+    container_name: mmiklaszewski_web
+    build: .
+    networks:
+      - app
+    ports:
+      - "3080:80"
+    volumes:
+      - .:/var/www/html
+  db:
+    container_name: mmiklaszewski_db
+    image: mysql:8.0
+    environment:
+      - MYSQL_DATABASE=app
+      - MYSQL_USER=db_user
+      - MYSQL_PASSWORD_FILE=/run/secrets/db_password
+      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db_root_password
+    secrets:
+      - db_password
+      - db_root_password
+    networks:
+      - app
+    ports:
+      - "3081:3306"
+  phpmyadmin:
+    container_name: mmiklaszewski_phpmyadmin
+    image: phpmyadmin/phpmyadmin
+    networks:
+      - app
+    ports:
+      - '3082:80'
+    secrets:
+      - db_password
+      - db_root_password
+    environment:
+      PMA_HOSTS: db
+      MYSQL_PASSWORD_FILE: /run/secrets/db_password
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
+    links:
+      - db
+
+networks:
+  app:
+
+secrets:
+  db_password:
+    file: docker/secrets/database_password.txt
+  db_root_password:
+    file: docker/secrets/database_password.txt
