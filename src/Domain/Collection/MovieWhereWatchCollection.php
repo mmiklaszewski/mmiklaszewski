@@ -16,15 +16,13 @@ final class MovieWhereWatchCollection extends \ArrayIterator implements \JsonSer
     public static function fromArray(array $data): self
     {
         $self = new self();
-        foreach ($data as $itemData)
-        {
+        foreach ($data as $itemData) {
             $self->append(
                 MovieWhereWatch::fromArray($itemData)
             );
         }
 
         return $self;
-
     }
 
     public static function create(array $array = []): self

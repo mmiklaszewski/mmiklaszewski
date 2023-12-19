@@ -15,12 +15,12 @@ final readonly class MovieWhereWatch implements \JsonSerializable
         Assertion::keyExists($data, 'logo');
         Assertion::keyExists($data, 'name');
         Assertion::keyExists($data, 'movieUrl');
+
         return new self(
             Link::fromString($data['logo']),
             $data['name'],
             Link::fromString($data['movieUrl']),
         );
-
     }
 
     #[\Override]

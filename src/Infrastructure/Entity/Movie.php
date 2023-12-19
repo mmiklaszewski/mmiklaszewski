@@ -45,7 +45,6 @@ class Movie
     #[ORM\Column(type: 'text', nullable: true)]
     private ?string $posterLink = null;
 
-
     #[ORM\Column(type: 'json', nullable: true)]
     private ?array $whereWatch = null;
 
@@ -176,8 +175,6 @@ class Movie
     {
         $this->whereWatch = $whereWatch;
     }
-
-
 
     public function getCreatedAt(): ?\DateTime
     {

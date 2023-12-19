@@ -64,6 +64,5 @@ final readonly class CollectDataAboutMovieHandler
                 $whereWatch
             )
         );
-
     }
 }
