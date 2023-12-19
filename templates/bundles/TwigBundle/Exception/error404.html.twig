@@ -2,9 +2,14 @@
 {% block content %}
     <div class="container">
         <div class="row g-5">
-            <div class="col-lg-8">
-                404
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8 text-center">
+                <section class="py-2 pt-5  wow fadeInUp" data-wow-delay="0.1s">
+                    <h1 class="mb-5">{{ '404.title'|trans({}, 'page') }}</h1>
+                    <a class="btn btn-success" href="{{ path('homepage') }}">{{ '404.return'|trans({}, 'page') }}</a>
+                </section>
             </div>
-        </div>
+            </div>
+            <div class="col-lg-2"></div>
     </div>
 {% endblock %}
