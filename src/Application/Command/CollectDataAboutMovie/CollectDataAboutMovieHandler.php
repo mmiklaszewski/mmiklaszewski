@@ -2,11 +2,11 @@
 
 namespace App\Application\Command\CollectDataAboutMovie;
 
-use App\Domain\Event\MovieDescriptionsWereCollected;
-use App\Domain\Event\MovieDetailsWereCollected;
-use App\Domain\Event\MoviePosterWasCollected;
-use App\Domain\Event\MovieWasCreated;
-use App\Domain\Event\MovieWhereWatchWereCollected;
+use App\Domain\Event\Movie\MovieDescriptionsWereCollected;
+use App\Domain\Event\Movie\MovieDetailsWereCollected;
+use App\Domain\Event\Movie\MoviePosterWasCollected;
+use App\Domain\Event\Movie\MovieWasCreated;
+use App\Domain\Event\Movie\MovieWhereWatchWereCollected;
 use App\Domain\Service\FindMovieDescriptions;
 use App\Domain\Service\FindMovieDetails;
 use App\Domain\Service\FindMovieDetailsLink;

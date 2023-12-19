@@ -2,22 +2,20 @@
 
 namespace App\Infrastructure\Entity;
 
-use App\Domain\ValueObject\DateTime as DateTimeVO;
-use App\Infrastructure\Doctrine\Type\UuidType;
+use App\Infrastructure\Entity\Helper\IDHelper;
+use App\Infrastructure\Entity\Helper\TimestampHelper;
+use App\Infrastructure\Entity\Helper\UuidHelper;
 use App\Infrastructure\Repository\MovieRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Uid\Uuid;
 
 #[ORM\Entity(repositoryClass: MovieRepository::class)]
 #[ORM\HasLifecycleCallbacks]
 class Movie
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
-    #[ORM\Column(type: UuidType::NAME)]
-    private ?Uuid $uuid = null;
+    use IDHelper;
+    use UuidHelper;
+    use TimestampHelper;
+
     #[ORM\Column(type: 'text', nullable: true)]
     private ?string $title = null;
 
@@ -48,33 +46,7 @@ class Movie
     #[ORM\Column(type: 'json', nullable: true)]
     private ?array $whereWatch = null;
 
-    #[ORM\Column(type: 'datetime', options: ['default' => 'CURRENT_TIMESTAMP'])]
-    private ?\DateTime $createdAt = null;
-
-    #[ORM\Column(type: 'datetime', options: ['default' => 'CURRENT_TIMESTAMP'])]
-    private ?\DateTime $updatedAt = null;
-
     // todo who (by code). where to watch
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
-    public function setId(?int $id): void
-    {
-        $this->id = $id;
-    }
-
-    public function getUuid(): ?Uuid
-    {
-        return $this->uuid;
-    }
-
-    public function setUuid(?Uuid $uuid): void
-    {
-        $this->uuid = $uuid;
-    }
 
     public function getTitle(): ?string
     {
@@ -174,38 +146,5 @@ class Movie
     public function setWhereWatch(?array $whereWatch): void
     {
         $this->whereWatch = $whereWatch;
-    }
-
-    public function getCreatedAt(): ?\DateTime
-    {
-        return $this->createdAt;
-    }
-
-    public function setCreatedAt(?\DateTime $createdAt): void
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    public function getUpdatedAt(): ?\DateTime
-    {
-        return $this->updatedAt;
-    }
-
-    public function setUpdatedAt(?\DateTime $updatedAt): void
-    {
-        $this->updatedAt = $updatedAt;
-    }
-
-    #[ORM\PrePersist]
-    public function prePersist(): void
-    {
-        $this->createdAt = DateTimeVO::now();
-        $this->updatedAt = DateTimeVO::now();
-    }
-
-    #[ORM\PreUpdate]
-    public function preUpdate(): void
-    {
-        $this->updatedAt = DateTimeVO::now();
     }
 }

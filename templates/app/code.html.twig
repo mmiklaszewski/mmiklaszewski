@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %}
+{% block content %}
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+                <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
+                    <h2 class="title pb-3 mb-5">{{ 'page.title'|trans({}, 'code') }}</h2>
+                    <p>{{ 'page.description'|trans({}, 'code')}}</p>
+                    <a href="mailto:{{ 'about_me.information.email_value' | trans({}, 'about_me') }}" class="btn btn-success">{{ 'about.contactMe' | trans({}, 'about_me') }}</a>
+                </section>
+                <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
+                    <form id="set-code" action="{{ path('set_code') }}">
+                        <div class="form-group">
+                            <label for="title">{{ 'code.label' |trans({}, 'code') }}</label>
+                            <input type="text" class="form-control" style="color: black" id="code" placeholder="{{ 'code.placeholder' |trans({}, 'code') }}" onkeyup="checkFieldsAndInput()">
+                        </div>
+                        <div class="form-group">
+                            <button disabled id="set-code-submit" class="btn btn-primary mt-2" type="submit" value="movie">{{ 'code.button' |trans({}, 'code') }}</button>
+                        </div>
+                    </form>
+                </section>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ asset('assets/js/setCode.js') }}"></script>
+{% endblock %}

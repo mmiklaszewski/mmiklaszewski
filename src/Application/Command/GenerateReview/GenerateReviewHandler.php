@@ -4,7 +4,7 @@ namespace App\Application\Command\GenerateReview;
 
 use App\Domain\Client\OpenAIClient;
 use App\Domain\Collection\AI\Messages;
-use App\Domain\Event\AIReviewWasGenerated;
+use App\Domain\Event\Movie\AIReviewWasGenerated;
 use App\Domain\ReadModel\MovieReadModel;
 use App\Domain\ValueObject\AI\Message;
 use App\Domain\ValueObject\AI\Model;

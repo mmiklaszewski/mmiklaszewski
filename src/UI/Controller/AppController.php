@@ -12,6 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\Attribute\MapRequestPayload;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\RouterInterface;
@@ -20,12 +21,9 @@ use Symfony\Component\Uid\Uuid;
 final class AppController extends AbstractController
 {
     #[Route('/{_locale<%app.supported_locales%>}/app', name: 'app', methods: ['GET'])]
-    public function index(): Response
+    public function index(SessionInterface $session): Response
     {
-        // tmp
-        return $this->redirectToRoute('homepage', ['_locale' => 'pl']);
-
-        return $this->render('app/generate_response.html.twig');
+        return $this->render('app/index.html.twig');
     }
 
     #[Route('/{_locale<%app.supported_locales%>}/app/generate-response', name: 'generate-response', methods: ['POST'])]
@@ -34,7 +32,6 @@ final class AppController extends AbstractController
         CommandBus $commandBus,
         RouterInterface $router
     ): JsonResponse {
-        return new JsonResponse('in progress');
         try {
             $uuid = Uuid::v4();
             $commandBus->handle(
@@ -62,8 +59,6 @@ final class AppController extends AbstractController
         Request $request,
         QueryBus $queryBus
     ): Response {
-        // tmp
-        return $this->redirectToRoute('homepage', ['_locale' => 'pl']);
         try {
             $uuid = Uuid::fromString($request->get('resultUuid'));
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\Event;
+namespace App\Domain\Event\CV;
 
 final readonly class CVWasDownloaded
 {

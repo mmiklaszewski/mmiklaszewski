@@ -2,7 +2,7 @@
 
 namespace App\Infrastructure\Projection;
 
-use App\Domain\Event\CVWasDownloaded;
+use App\Domain\Event\CV\CVWasDownloaded;
 use App\Infrastructure\Entity\CVDownloaded;
 use App\Infrastructure\Repository\CVDownloadedRepository;
 use JetBrains\PhpStorm\NoReturn;

@@ -2,12 +2,12 @@
 
 namespace App\Infrastructure\Projection;
 
-use App\Domain\Event\AIReviewWasGenerated;
-use App\Domain\Event\MovieDescriptionsWereCollected;
-use App\Domain\Event\MovieDetailsWereCollected;
-use App\Domain\Event\MoviePosterWasCollected;
-use App\Domain\Event\MovieWasCreated;
-use App\Domain\Event\MovieWhereWatchWereCollected;
+use App\Domain\Event\Movie\AIReviewWasGenerated;
+use App\Domain\Event\Movie\MovieDescriptionsWereCollected;
+use App\Domain\Event\Movie\MovieDetailsWereCollected;
+use App\Domain\Event\Movie\MoviePosterWasCollected;
+use App\Domain\Event\Movie\MovieWasCreated;
+use App\Domain\Event\Movie\MovieWhereWatchWereCollected;
 use App\Domain\ReadModel\MovieReadModel;
 use App\Infrastructure\Entity\Movie;
 use App\Infrastructure\Repository\MovieRepository;

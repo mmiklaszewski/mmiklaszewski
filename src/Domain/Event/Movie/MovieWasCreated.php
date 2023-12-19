@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\Event;
+namespace App\Domain\Event\Movie;
 
 use App\Domain\ValueObject\MovieCategory;
 use Symfony\Component\Uid\Uuid;

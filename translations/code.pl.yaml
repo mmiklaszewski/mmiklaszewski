@@ -1,0 +1,8 @@
+page:
+  title: Aby skorzystaj z aplikacji musisz posiadać KOD dostępu
+  description: Poproś o kod dostępu
+
+code:
+  label: Podaj KOD
+  placeholder: przykładowy-kod-123
+  button: Ustaw KOD

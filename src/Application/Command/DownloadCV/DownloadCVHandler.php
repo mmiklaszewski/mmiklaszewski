@@ -2,7 +2,7 @@
 
 namespace App\Application\Command\DownloadCV;
 
-use App\Domain\Event\CVWasDownloaded;
+use App\Domain\Event\CV\CVWasDownloaded;
 use Psr\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 
