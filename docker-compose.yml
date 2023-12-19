@@ -15,11 +15,11 @@ services:
     environment:
       - MYSQL_DATABASE=app
       - MYSQL_USER=db_user
-      - MYSQL_PASSWORD_FILE=/run/secrets/db_password
-      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db_root_password
+      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db_root_password_1
+      - MYSQL_PASSWORD_FILE=/run/secrets/db_password_1
     secrets:
-      - db_password
-      - db_root_password
+      - db_password_1
+      - db_root_password_1
     networks:
       - app
     ports:
@@ -32,20 +32,19 @@ services:
     ports:
       - '3082:80'
     secrets:
-      - db_password
-      - db_root_password
+      - db_password_1
+      - db_root_password_1
     environment:
       PMA_HOSTS: db
-      MYSQL_PASSWORD_FILE: /run/secrets/db_password
-      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
+      MYSQL_PASSWORD_FILE: /run/secrets/db_password_1
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_password_1
     links:
       - db
-
 networks:
   app:
 
 secrets:
-  db_password:
-    file: docker/secrets/database_password.txt
-  db_root_password:
+  db_root_password_1:
+    file: docker/secrets/database_root_password.txt
+  db_password_1:
     file: docker/secrets/database_password.txt
