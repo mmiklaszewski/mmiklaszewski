@@ -21,5 +21,4 @@ final class IndexController extends AbstractController
     {
         return $this->render('about_me/index.html.twig');
     }
-
 }

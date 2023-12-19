@@ -32,7 +32,7 @@ skills:
   title: Umiejętności
   php: PHP (8.3, 7.2)
   symfony: Symfony (3.4, 6.4)
-  rabbit_mq: RabbitMQ
+  rabbitmq: RabbitMQ
   elasticsearch: Elasticsearch
   openai: OpenAI (GPT, Whisper, ADA)
   linux: Korzystanie z systemu Linux
