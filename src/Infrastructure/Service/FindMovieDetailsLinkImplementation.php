@@ -19,7 +19,7 @@ final readonly class FindMovieDetailsLinkImplementation implements FindMovieDeta
     public function search(string $title, MovieCategory $category): Link
     {
         $query = sprintf(
-            'site:wikipedia.org "%s" (%s)',
+            'site:wikipedia.org %s (%s)',
             $title,
             $this->translator->trans(sprintf('movieCategory.%s', $category->jsonSerialize()), [], 'app')
         );

@@ -19,7 +19,7 @@ final readonly class FindMovieLinkImplementation implements FindMovieLink
     public function search(string $title, MovieCategory $category): Link
     {
         $query = sprintf(
-            'site:filmweb.pl "%s" (%s)',
+            'site:filmweb.pl %s (%s)',
             $title,
             $this->translator->trans(sprintf('movieCategory.%s', $category->jsonSerialize()), [], 'app')
         );
