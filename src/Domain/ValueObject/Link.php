@@ -4,50 +4,50 @@ namespace App\Domain\ValueObject;
 
 final readonly class Link
 {
-    private string $domain;
+    private string $link;
 
-    public function __construct(string $domain)
+    public function __construct(string $link)
     {
-        $domain = self::addPrefix($domain);
-        $this->domain = $domain;
+        $link = self::addPrefix($link);
+        $this->link = $link;
     }
 
-    public static function fromString(string $domain): self
+    public static function fromString(string $link): self
     {
-        return new self($domain);
+        return new self($link);
     }
 
     public function host(): string
     {
-        return parse_url($this->domain, PHP_URL_HOST);
+        return parse_url($this->link, PHP_URL_HOST);
     }
 
     public function toString(): string
     {
-        return $this->domain;
+        return $this->link;
     }
 
-    private static function addPrefix(string $domain): string
+    private static function addPrefix(string $link): string
     {
-        if (false !== strpos($domain, '@')) {
-            throw new \Exception('Incorrect domain');
+        if (false !== strpos($link, '@')) {
+            throw new \Exception('Incorrect link');
         }
         $urlRegex = "/^(http|https|ftp):\/\/([A-Z0-9ąćęłńóśźżĄĆĘŁŃÓŚŹŻ\-][A-Z0-9_-ąćęłńóśźżĄĆĘŁŃÓŚŹŻ\-]*(?:\.[A-Z0-9ąćęłńóśźżĄĆĘŁŃÓŚŹŻ][A-Z0-9_-ąćęłńóśźżĄĆĘŁŃÓŚŹŻ]*)+):?(\d+)?\/?/i";
 
-        if (false === (bool) preg_match($urlRegex, $domain)) {
-            $www = 'http://'.$domain;
+        if (false === (bool) preg_match($urlRegex, $link)) {
+            $www = 'http://'.$link;
             if (false === (bool) preg_match($urlRegex, $www)) {
-                throw new \Exception('Incorrect domain');
+                throw new \Exception('Incorrect link');
             }
         } else {
-            $www = $domain;
+            $www = $link;
         }
 
         return $www;
     }
 
-    public function equal(Link $domain): bool
+    public function equal(Link $link): bool
     {
-        return mb_strtolower($domain->toString()) === mb_strtolower($this->toString());
+        return mb_strtolower($link->toString()) === mb_strtolower($this->toString());
     }
 }

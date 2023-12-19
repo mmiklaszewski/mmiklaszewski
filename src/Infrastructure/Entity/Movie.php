@@ -45,6 +45,10 @@ class Movie
     #[ORM\Column(type: 'text', nullable: true)]
     private ?string $posterLink = null;
 
+
+    #[ORM\Column(type: 'json', nullable: true)]
+    private ?array $whereWatch = null;
+
     #[ORM\Column(type: 'datetime', options: ['default' => 'CURRENT_TIMESTAMP'])]
     private ?\DateTime $createdAt = null;
 
@@ -162,6 +166,18 @@ class Movie
     {
         $this->posterLink = $posterLink;
     }
+
+    public function getWhereWatch(): ?array
+    {
+        return $this->whereWatch;
+    }
+
+    public function setWhereWatch(?array $whereWatch): void
+    {
+        $this->whereWatch = $whereWatch;
+    }
+
+
 
     public function getCreatedAt(): ?\DateTime
     {

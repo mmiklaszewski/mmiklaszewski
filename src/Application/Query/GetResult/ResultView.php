@@ -2,6 +2,7 @@
 
 namespace App\Application\Query\GetResult;
 
+use App\Domain\Collection\MovieWhereWatchCollection;
 use App\Domain\ValueObject\AIMovieReview;
 use App\Domain\ValueObject\Link;
 use App\Domain\ValueObject\MovieCategory;
@@ -18,6 +19,7 @@ final readonly class ResultView implements \JsonSerializable
         public ?string $details,
         public string $preferences,
         public ?Link $poster,
+        public MovieWhereWatchCollection $movieWhereWatchCollection
     ) {
     }
 
@@ -32,7 +34,10 @@ final readonly class ResultView implements \JsonSerializable
             $review->description,
             $review->details,
             $review->preferences,
-            $movie->getPosterLink() ? Link::fromString($movie->getPosterLink()) : null
+            $movie->getPosterLink() ? Link::fromString($movie->getPosterLink()) : null,
+            $movie->getWhereWatch()
+                ? MovieWhereWatchCollection::fromArray($movie->getWhereWatch())
+                : MovieWhereWatchCollection::create(),
         );
     }
 
@@ -47,6 +52,7 @@ final readonly class ResultView implements \JsonSerializable
             'details' => $this->details,
             'preferences' => $this->preferences,
             'poster' => $this->poster?->toString(),
+            'whereWatch' => $this->movieWhereWatchCollection->jsonSerialize(),
         ];
     }
 }

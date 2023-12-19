@@ -4,11 +4,11 @@
     <div class="row g-5">
         <div class="col-lg-2"></div>
         <div class="col-lg-8">
-            <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
+            <section class="py-2 border-bottom wow fadeInUp" data-wow-delay="0.1s">
                 <h1 class="title pb-3 mb-5">{{ 'result.title'|trans({}, 'app') }}</h1>
                 <p>{{ 'result.resultTitle'|trans({'%title%' : view.title, '%category%':  ('movieCategory.' ~ view.category) | trans({}, 'app') }, 'app') | raw }}</p>
             </section>
-            <section class="py-5 wow fadeInUp" data-wow-delay="0.1s">
+            <section class="py-2 wow fadeInUp" data-wow-delay="0.1s">
 
                 {% if view.poster is not null %}
                     <div id="poster" class="text-center">
@@ -34,10 +34,36 @@
                     </tbody>
                 </table>
             </section>
+            {% if view.whereWatch is not empty%}
+                <section class="py-2 wow fadeInUp" data-wow-delay="0.1s">
+                    <h4 class="title pb-3 mb-5">{{ 'result.whereWatch' | trans({}, 'app') }}</h4>
+                    <div class="row">
+                        {% for data in view.whereWatch %}
+                            <div class="col-lg-3">
+                                <a href="{{ data.movieUrl }}" target="_blank" class="opc">
+                                    <figure class="figure border border-1 border-info text-center" style="width: 100%">
+                                        <img height="50px" src="{{ data.logo }}">
+                                      <figcaption class="figure-caption "><h5>{{ data.name }}</h5></figcaption>
+                                    </figure>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                </section>
+            {% endif %}
+
         </div>
         <div class="col-lg-2"></div>
     </div>
 </div>
+
+    <section class="wow fadeIn" data-wow-delay="0.1s">
+        <div class="bg-secondary text-light text-center p-5">
+           {{ 'footer.about' | trans({}, 'app') }} <a target="_blank" href="https://www.filmweb.pl/">Filmweb</a> {{ 'footer.and' | trans({}, 'app') }} <a target="_blank" href="https://wikipedia.org">Wikipedia</a>
+        </div>
+    </section>
+
 {% endblock %}
 
 {% block scripts %}

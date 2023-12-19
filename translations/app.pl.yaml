@@ -12,6 +12,7 @@ about:
   
   Wystarczy że uzupełnisz dane poniżej."
 
+
 title:
   label: Tytuł
   placeholder: Podaj tytuł jaki Cię interesuje
@@ -30,3 +31,9 @@ result:
   description: O programie
   details: Szczegóły
   preferences: Ocena recenzenta
+  whereWatch: Gdzie obejrzysz?
+
+
+footer:
+  about:  Dane potrzebne do wykonania podsumowania dzięki
+  and: oraz

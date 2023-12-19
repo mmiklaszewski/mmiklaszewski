@@ -216,3 +216,8 @@
 .testimonial-carousel .owl-dot.active {
   background: var(--primary);
 }
+
+.opc:hover {
+  color: red;
+  opacity: 0.5;
+}

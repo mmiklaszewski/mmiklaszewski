@@ -7,6 +7,7 @@ use App\Domain\Event\MovieDescriptionsWereCollected;
 use App\Domain\Event\MovieDetailsWereCollected;
 use App\Domain\Event\MoviePosterWasCollected;
 use App\Domain\Event\MovieWasCreated;
+use App\Domain\Event\MovieWhereWatchWereCollected;
 use App\Domain\ReadModel\MovieReadModel;
 use App\Infrastructure\Entity\Movie;
 use App\Infrastructure\Repository\MovieRepository;
@@ -17,6 +18,7 @@ use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 #[AsEventListener(event: MovieDetailsWereCollected::class, method: 'projectWhenMovieDetailsWereCollected')]
 #[AsEventListener(event: MovieDescriptionsWereCollected::class, method: 'projectWhenMovieDescriptionsWereCollected')]
 #[AsEventListener(event: MoviePosterWasCollected::class, method: 'projectWhenMoviePosterWasCollected')]
+#[AsEventListener(event: MovieWhereWatchWereCollected::class, method: 'projectWhenMovieWhereWatchWereCollected')]
 #[AsEventListener(event: AIReviewWasGenerated::class, method: 'projectWhenAIReviewWasGenerated')]
 final readonly class MovieProjection
 {
@@ -61,6 +63,14 @@ final readonly class MovieProjection
     {
         $entity = $this->movieReadModel->find($event->uuid);
         $entity->setPosterLink($event->link->toString());
+        $this->movieRepository->save($entity);
+    }
+
+    #[NoReturn]
+    public function projectWhenMovieWhereWatchWereCollected(MovieWhereWatchWereCollected $event): void
+    {
+        $entity = $this->movieReadModel->find($event->uuid);
+        $entity->setWhereWatch($event->collection->jsonSerialize());
         $this->movieRepository->save($entity);
     }
 
