@@ -38,7 +38,7 @@ final readonly class FindWhereWatchMovieImplementation implements FindWhereWatch
             foreach ($allProviders as $allProvider) {
                 if ($movieProvider['vodProvider'] === $allProvider['id']) {
                     $whereWatch = new MovieWhereWatch(
-                        Link::fromString(sprintf('https://fwcdn.pl/vod%s', str_replace('$', 1, $allProvider['path']))),
+                        Link::fromString(sprintf('https://fwcdn.pl/vodp%s', str_replace('$', 1, $allProvider['path']))),
                         $allProvider['displayName'],
                         Link::fromString($movieProvider['link'])
                     );

@@ -11,7 +11,8 @@ final readonly class MovieWasCreated
         public Uuid $uuid,
         public string $title,
         public MovieCategory $category,
-        public string $preferences
+        public string $preferences,
+        public string $code,
     ) {
     }
 }

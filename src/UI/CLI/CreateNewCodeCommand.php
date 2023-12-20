@@ -36,9 +36,6 @@ final class CreateNewCodeCommand extends Command
         $code = $input->getArgument('code');
         $limit = $input->getArgument('limit');
 
-        dump($code);
-        dump($limit);
-
         $this->commandBus->handle(
             new CreateCodeCommand(
                 $code,

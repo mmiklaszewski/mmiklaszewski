@@ -21,8 +21,10 @@ function checkFieldsAndInput() {
 
 
 function submitForm(clickedButtonValue) {
+    var codeElement =  $('#code');
+
     var formData = {
-        'code': $('#code').val(),
+        'code':codeElement.val(),
     };
 
     $.ajax({
@@ -31,10 +33,27 @@ function submitForm(clickedButtonValue) {
         data: formData,
         dataType: 'json',
         encode: true,
-        beforeSend: function() {}
+        beforeSend: function() {
+            codeElement.prop('disabled', true);
+            codeElement.removeClass("is-invalid");
+            $('#codeFeedback').html('')
+        }
     })
         .done(function(data) {
-            window.location.href = data.resultUrl;
+            codeElement.prop('disabled', false);
+            if (data.errors) {
+                for (var key in data.errors) {
+                    if (data.errors.hasOwnProperty(key)) {
+                        $('#codeFeedback').append('<p>' + data.errors[key] + '</p>');
+                    }
+                }
+
+                codeElement.removeClass("is-valid");
+                codeElement.addClass("is-invalid");
+
+            } else {
+                window.location.href = data.resultUrl;
+            }
         })
         .fail(function(error) {
             $('#code').prop('disabled', false);

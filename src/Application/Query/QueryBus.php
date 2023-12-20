@@ -17,7 +17,14 @@ final class QueryBus implements MessageBusInterface
 
     public function handle(mixed $query): mixed
     {
-        return $this->dispatch($query)->last(HandledStamp::class)->getResult();
+        try {
+            return $this->dispatch($query)->last(HandledStamp::class)->getResult();
+        } catch (\Exception $exception) {
+            if ($exception->getPrevious()) {
+                throw $exception->getPrevious();
+            }
+            throw $exception;
+        }
     }
 
     public function dispatch(object $message, array $stamps = []): Envelope

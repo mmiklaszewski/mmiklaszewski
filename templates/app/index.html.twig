@@ -2,7 +2,9 @@
 {% block content %}
 <div class="container">
     <div class="row g-5">
-        <div class="col-lg-2"></div>
+        <div class="col-lg-2">
+            {% include 'app/code_stats.html.twig' %}
+        </div>
         <div class="col-lg-8">
             <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
                 <h1 class="title pb-3 mb-5">{{ 'about.title'|trans({}, 'app') }}</h1>

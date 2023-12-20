@@ -13,6 +13,7 @@ use App\Domain\Service\FindMovieDetailsLink;
 use App\Domain\Service\FindMovieLink;
 use App\Domain\Service\FindMoviePoster;
 use App\Domain\Service\FindWhereWatchMovie;
+use App\Domain\Specification\CanUseCode;
 use Psr\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 
@@ -20,6 +21,7 @@ use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 final readonly class CollectDataAboutMovieHandler
 {
     public function __construct(
+         private CanUseCode $canUseCode,
         private FindMovieDetailsLink $findMovieDetailsLink,
         private FindMovieDetails $findMovieDetails,
         private FindMovieLink $findMovieLink,
@@ -32,8 +34,11 @@ final readonly class CollectDataAboutMovieHandler
 
     public function __invoke(CollectDataAboutMovieCommand $command): void
     {
+
+        $this->canUseCode->isSatisfiedBy($command->code);
+
         $this->dispatcher->dispatch(
-            new MovieWasCreated($command->uuid, $command->title, $command->category, $command->preferences)
+            new MovieWasCreated($command->uuid, $command->title, $command->category, $command->preferences, $command->code)
         );
 
         $wikiLink = $this->findMovieDetailsLink->search($command->title, $command->category);
