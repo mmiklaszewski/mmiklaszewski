@@ -33,7 +33,7 @@ final class IndexController extends AbstractController
             new DownloadCVCommand(
                 [
                     'headers' => $request->headers->all(),
-                    'ip' => $request->getClientIp(),
+                    'ip' => $request->headers->get('X-Forwarded-For') ?? $request->getClientIp(),
                 ]
             )
         );
