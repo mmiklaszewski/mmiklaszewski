@@ -33,7 +33,7 @@ final readonly class CodeProjection
     public function projectWhenMovieWasCreated(MovieWasCreated $event): void
     {
         $entity = $this->codeRepository->findOneBy(['code' => $event->code]);
-        $entity->setUsed($entity->getUsed()+1);
+        $entity->setUsed($entity->getUsed() + 1);
         $this->codeRepository->save($entity);
     }
 }

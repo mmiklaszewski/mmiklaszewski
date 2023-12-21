@@ -82,7 +82,7 @@ final class AppController extends AbstractController
         return $this->render('app/result.html.twig',
             [
                 'view' => $view->jsonSerialize(),
-                'codeView' => $codeView->jsonSerialize()
+                'codeView' => $codeView->jsonSerialize(),
             ]
         );
     }

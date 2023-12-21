@@ -21,7 +21,7 @@ use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 final readonly class CollectDataAboutMovieHandler
 {
     public function __construct(
-         private CanUseCode $canUseCode,
+        private CanUseCode $canUseCode,
         private FindMovieDetailsLink $findMovieDetailsLink,
         private FindMovieDetails $findMovieDetails,
         private FindMovieLink $findMovieLink,
@@ -34,7 +34,6 @@ final readonly class CollectDataAboutMovieHandler
 
     public function __invoke(CollectDataAboutMovieCommand $command): void
     {
-
         $this->canUseCode->isSatisfiedBy($command->code);
 
         $this->dispatcher->dispatch(
