@@ -46,8 +46,10 @@ function checkInput(id, min, max) {
 }
 
 function submitForm(clickedButtonValue) {
+    var titleElement =  $('#title');
+
     var formData = {
-        'title': $('#title').val(),
+        'title': titleElement.val(),
         'category': clickedButtonValue,
         'preferences': $('#preferences').val(),
     };
@@ -59,7 +61,7 @@ function submitForm(clickedButtonValue) {
         dataType: 'json',
         encode: true,
         beforeSend: function() {
-            $('#title').prop('disabled', true);
+            titleElement.prop('disabled', true);
             $('#preferences').prop('disabled', true);
             $('#search_movie').prop('disabled', true);
             $('#search_series').prop('disabled', true);
@@ -67,7 +69,29 @@ function submitForm(clickedButtonValue) {
         }
     })
         .done(function(data) {
-            window.location.href = data.resultUrl;
+            titleElement.prop('disabled', false);
+            $('#preferences').prop('disabled', false);
+            $('#search_movie').prop('disabled', false);
+            $('#search_series').prop('disabled', false);
+            if (data.errors) {
+                for (var key in data.errors) {
+                    if (data.errors.hasOwnProperty(key)) {
+                        $('#titleFeedback').append('<p>' + data.errors[key] + '</p>');
+                    }
+                }
+
+                titleElement.removeClass("is-valid");
+                titleElement.addClass("is-invalid");
+
+                var button = $('#search_'+clickedButtonValue);
+                var spanElement = button.find('span')
+                if (spanElement.length > 0) {
+                    spanElement.remove();
+                }
+
+            } else {
+                window.location.href = data.resultUrl;
+            }
         })
         .fail(function(error) {
             $('#title').prop('disabled', false);

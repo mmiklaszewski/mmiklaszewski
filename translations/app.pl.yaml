@@ -37,3 +37,7 @@ result:
 footer:
   about:  Dane potrzebne do wykonania podsumowania dzięki
   and: oraz
+
+
+errors:
+  can_not_generate: 'Spróbuj ponownie poszukać lub zmień tytuł'

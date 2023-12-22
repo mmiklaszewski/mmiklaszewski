@@ -20,6 +20,7 @@ use Symfony\Component\HttpKernel\Attribute\MapRequestPayload;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Uid\Uuid;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 final class AppController extends AbstractController
 {
@@ -39,7 +40,8 @@ final class AppController extends AbstractController
         #[MapRequestPayload] GenerateResponseAboutMovieInput $input,
         CommandBus $commandBus,
         RouterInterface $router,
-        SessionInterface $session
+        SessionInterface $session,
+        TranslatorInterface $translator
     ): JsonResponse {
         try {
             $uuid = Uuid::v4();
@@ -59,9 +61,13 @@ final class AppController extends AbstractController
                 ]
             );
         } catch (\Throwable $throwable) {
-            dump($throwable);
-            die();
-            return new JsonResponse(sprintf('Exception: %s', $throwable->getMessage()));
+            return new JsonResponse(
+                [
+                    'errors' => [
+                        'code_used' => $translator->trans('errors.can_not_generate', [], 'app'),
+                    ],
+                ]
+            );
         }
     }
 
