@@ -36,7 +36,11 @@ final readonly class GenerateReviewHandler
             new Message(
                 Role::system(),
                 $this->translator->trans('generateReview.system', [
-                    '%movie_descriptions%' => implode(';', array_slice($entity->getDescriptions() ?? [], 0, 3)),
+                    '%movie_descriptions%' => str_replace(
+                        ['„', '”'],
+                        ['', ''],
+                        implode(';', array_slice($entity->getDescriptions() ?? [], 0, 3))
+                    ),
                     '%movie_details%' => json_encode($entity->getDetails() ?? []),
                     '%user_preferences%' => $entity->getPreferences(),
                 ], 'prompt')
@@ -53,7 +57,7 @@ final readonly class GenerateReviewHandler
         $configuration = new OpenAIConfiguration(
             Model::gpt3_5_turbo(),
             ResponseFormat::json(),
-            0.4,
+            0.7,
         );
 
         $result = $this->openAIClient->request($configuration, $messages);

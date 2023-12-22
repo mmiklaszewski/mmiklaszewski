@@ -20,39 +20,4 @@ final class ScraperClientImplementation implements ScraperClient
 
         return new ScraperResult($htmlString);
     }
-
-    // todo remove
-    public function clearHtml(string $html): string
-    {
-        $config = \HTMLPurifier_Config::createDefault();
-        $config->set('HTML.AllowedElements', [
-            'a',
-        ]);
-        $config->set('HTML.AllowedAttributes', [
-            'a.href',
-        ]);
-        $config->set('CSS.AllowedProperties', [
-        ]);
-        $config->set('URI.AllowedSchemes', [
-            'data' => true,
-            'http' => true,
-            'https' => true,
-            'mailto' => true,
-            'ftp' => true,
-            'tel' => true,
-        ]);
-        $def = $config->getHTMLDefinition(true);
-        $def->addAttribute('td', 'border', 'Number');
-        $purifier = new \HTMLPurifier($config);
-
-        $html = $purifier->purify($html);
-
-        $html = str_replace(["\n", "\t"], '', $html);
-
-        $html = str_replace(["\u{A0}", "\u{200B}"], ' ', $html);
-
-        $html = preg_replace('/\s+/', ' ', $html);
-
-        return $html;
-    }
 }

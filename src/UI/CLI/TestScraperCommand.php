@@ -2,8 +2,8 @@
 
 namespace App\UI\CLI;
 
-use App\Domain\Service\FindWhereWatchMovie;
-use App\Domain\ValueObject\Link;
+use App\Domain\Service\FindMovieLink;
+use App\Domain\ValueObject\MovieCategory;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -18,13 +18,14 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 final class TestScraperCommand extends Command
 {
-    private FindWhereWatchMovie $findWhereWatchMovie;
+    private FindMovieLink $findMovieDescriptions;
 
     public function __construct(
-        FindWhereWatchMovie $findWhereWatchMovie
+        FindMovieLink $findMovieDescriptions
     ) {
         parent::__construct();
-        $this->findWhereWatchMovie = $findWhereWatchMovie;
+
+        $this->findMovieDescriptions = $findMovieDescriptions;
     }
 
     protected function configure(): void
@@ -37,11 +38,12 @@ final class TestScraperCommand extends Command
 
     public function execute(InputInterface $input, OutputInterface $output): int
     {
-        $link = Link::fromString('https://www.filmweb.pl/film/Zielona+mila-1999-862');
+        $title = $input->getArgument('title');
 
-        $this->findWhereWatchMovie->findWhereWatch($link);
+        $category = $input->getArgument('category');
+        $link = $this->findMovieDescriptions->search($title, MovieCategory::fromString($category));
 
-        exit;
+        dump($link);
 
         return Command::SUCCESS;
     }

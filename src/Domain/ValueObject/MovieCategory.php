@@ -41,4 +41,9 @@ final readonly class MovieCategory implements \JsonSerializable
     {
         return [self::MOVIE, self::SERIES];
     }
+
+    public function equal(MovieCategory $category): bool
+    {
+        return $this->category === $category->jsonSerialize();
+    }
 }

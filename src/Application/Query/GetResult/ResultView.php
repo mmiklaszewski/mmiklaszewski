@@ -17,7 +17,7 @@ final readonly class ResultView implements \JsonSerializable
         public MovieCategory $category,
         public ?string $description,
         public ?string $details,
-        public string $preferences,
+        public ?string $preferences,
         public ?Link $poster,
         public MovieWhereWatchCollection $movieWhereWatchCollection
     ) {

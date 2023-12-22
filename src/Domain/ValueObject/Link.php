@@ -22,6 +22,11 @@ final readonly class Link
         return parse_url($this->link, PHP_URL_HOST);
     }
 
+    public function scheme(): string
+    {
+        return parse_url($this->link, PHP_URL_SCHEME);
+    }
+
     public function toString(): string
     {
         return $this->link;

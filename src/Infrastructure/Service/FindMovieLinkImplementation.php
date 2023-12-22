@@ -32,6 +32,34 @@ final readonly class FindMovieLinkImplementation implements FindMovieLink
             throw MovieLinkNotFound::create($title);
         }
 
+        $link = $this->prepareLink($link, $title, $category);
+
         return Link::fromString($link);
+    }
+
+    private function prepareLink(string $link, string $title, MovieCategory $category): string
+    {
+        $linkVO = Link::fromString($link);
+
+        $type = $category->equal(MovieCategory::movie()) ? 'film' : 'serial';
+
+        $arguments = str_replace(
+            sprintf(
+                '%s://%s/%s/',
+                $linkVO->scheme(),
+                $linkVO->host(),
+                $type
+            ),
+            '',
+            $link
+        );
+
+        $movieTitle = explode('/', $arguments)[0] ?? null;
+
+        if (!$movieTitle) {
+            throw MovieLinkNotFound::create($title);
+        }
+
+        return sprintf('%s://%s/%s/%s', $linkVO->scheme(), $linkVO->host(), $type, $movieTitle);
     }
 }
