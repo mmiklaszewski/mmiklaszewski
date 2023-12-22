@@ -12,7 +12,7 @@ use Symfony\Component\Uid\Uuid;
 
 #[ORM\Entity(repositoryClass: CodeRepository::class)]
 #[ORM\HasLifecycleCallbacks]
-final class CodeUsage
+class CodeUsage
 {
     use IDHelper;
     use UuidHelper;
