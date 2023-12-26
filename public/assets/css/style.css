@@ -79,6 +79,9 @@
   transition: background 0.5s;
   z-index: 11;
 }
+.text-primary {
+  color: #A1C181 !important;
+}
 
 .back-to-top i {
   color: var(--primary);
