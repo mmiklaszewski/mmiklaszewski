@@ -1,6 +1,6 @@
 /********** Template CSS **********/
 :root {
-  --primary: #00B87B;
+  --primary: #A1C181;
   --secondary: #314355;
   --light: #F2F2F2;
   --dark: #2C3E50;
@@ -78,9 +78,6 @@
   bottom: 30px;
   transition: background 0.5s;
   z-index: 11;
-}
-.text-primary {
-  color: #A1C181 !important;
 }
 
 .back-to-top i {
