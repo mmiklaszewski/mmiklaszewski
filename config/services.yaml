@@ -9,6 +9,8 @@ services:
         bind:
             $serperToken: '%env(SERPER_TOKEN)%'
             $openAiToken: '%env(OPEN_AI_TOKEN)%'
+            $slackCVLogger: '@monolog.logger.cvDownloaded'
+            $slackMovieLogger: '@monolog.logger.movie'
 
     App\:
         resource: '../src/'
