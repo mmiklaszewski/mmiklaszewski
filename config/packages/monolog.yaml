@@ -1,6 +1,28 @@
 monolog:
     channels:
         - deprecation # Deprecations are logged in the dedicated "deprecation" channel when it exists
+        - cvDownloaded
+        - movie
+
+    handlers:
+        slack_cv_handler:
+            type: slackWebhook
+            webhook_url: '%env(SLACK_CV_DOWNLOADED)%'
+            channel: '%env(SLACK_CV_DOWNLOADED)%'
+            bot_name: 'CV'
+            icon_emoji: ':ghost:'
+            level: debug
+            channels: [ cvDownloaded ]
+            include_extra: true
+        slack_movie_handler:
+            type: slackWebhook
+            webhook_url: '%env(SLACK_MOVIE)%'
+            channel: '%env(SLACK_MOVIE)%'
+            bot_name: 'CV'
+            icon_emoji: ':ghost:'
+            level: debug
+            channels: [ movie ]
+            include_extra: true
 
 when@dev:
     monolog:
@@ -10,14 +32,6 @@ when@dev:
                 path: "%kernel.logs_dir%/%kernel.environment%.log"
                 level: debug
                 channels: ["!event"]
-            # uncomment to get logging in your browser
-            # you may have to allow bigger header sizes in your Web server configuration
-            #firephp:
-            #    type: firephp
-            #    level: info
-            #chromephp:
-            #    type: chromephp
-            #    level: info
             console:
                 type: console
                 process_psr_3_messages: false
