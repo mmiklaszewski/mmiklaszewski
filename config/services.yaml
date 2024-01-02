@@ -11,6 +11,8 @@ services:
             $openAiToken: '%env(OPEN_AI_TOKEN)%'
             $slackCVLogger: '@monolog.logger.cvDownloaded'
             $slackMovieLogger: '@monolog.logger.movie'
+#            $slackErrors: '@monolog.logger.errors'
+            $slackOpinionLogger: '@monolog.logger.opinion'
 
     App\:
         resource: '../src/'

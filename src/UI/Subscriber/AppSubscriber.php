@@ -33,10 +33,6 @@ final readonly class AppSubscriber implements EventSubscriberInterface
         }
 
         if ($controller instanceof AppController) {
-            if ('result' === $event->getControllerReflector()->name) {
-                return;
-            }
-
             $code = $this->requestStack->getSession()->get('code', null);
 
             if (null === $code) {

@@ -32,6 +32,12 @@ result:
   details: Szczegóły
   preferences: Ocena recenzenta
   whereWatch: Gdzie obejrzysz?
+  opinion: Opinie na temat działania recenzenta
+
+opinion:
+  label: Zostaw swoją opinię
+  placeholder: Napisz swoją opinię
+  save: Zapisz
 
 
 footer:
@@ -41,3 +47,4 @@ footer:
 
 errors:
   can_not_generate: 'Spróbuj ponownie poszukać lub zmień tytuł'
+  cant_save_opinion: 'Nie udało zapisać się opinii, spróbuj jeszcze raz'

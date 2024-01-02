@@ -55,6 +55,35 @@
                 </section>
             {% endif %}
 
+            <section class="py-2 wow fadeInUp" data-wow-delay="0.1s">
+                <h4 class="title pb-3 mb-5">{{ 'result.opinion' | trans({}, 'app') }}</h4>
+                <div class="row g-4" >
+                    {% for opinion in opinions %}
+                        <div class="col-lg-12">
+                            <div class="service-item">
+                                <p>{{ opinion.opinion }}</p>
+                                <span>{{ opinion.createdAt }}</span>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="row">
+                    <form id="save-opinion" action="{{ path('save-opinion') }}">
+                        <input type="text" id="movie" value="{{ view.resultUuid }}" hidden="hidden">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label for="preferences">{{ 'opinion.label' |trans({}, 'app') }}</label>
+                                <textarea class="form-control" style="color: black" id="opinion" placeholder="{{ 'opinion.placeholder' |trans({}, 'app') }}" onkeyup="checkFieldsAndInput()"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button disabled id="save" class="btn btn-primary mt-2" type="submit" value="movie">{{ 'opinion.save' |trans({}, 'app') }}</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+            </section>
         </div>
         <div class="col-lg-2"></div>
     </div>
@@ -69,5 +98,5 @@
 {% endblock %}
 
 {% block scripts %}
-    <script src="{{ asset('assets/js/generateResponse.js') }}"></script>
+    <script src="{{ asset('assets/js/saveOpinion.js') }}"></script>
 {% endblock %}
