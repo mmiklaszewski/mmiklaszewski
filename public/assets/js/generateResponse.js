@@ -30,21 +30,6 @@ function checkFieldsAndInput() {
     }
 }
 
-function checkInput(id, min, max) {
-    var element = document.getElementById(id);
-    var isValid = element.value.length >= min && element.value.length <= max;
-
-    if (isValid) {
-        element.classList.add("is-valid");
-        element.classList.remove("is-invalid");
-    } else {
-        element.classList.remove("is-valid");
-        element.classList.add("is-invalid");
-    }
-
-    return isValid;
-}
-
 function submitForm(clickedButtonValue) {
     var titleElement =  $('#title');
 

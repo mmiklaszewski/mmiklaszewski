@@ -3,6 +3,8 @@ monolog:
         - deprecation # Deprecations are logged in the dedicated "deprecation" channel when it exists
         - cvDownloaded
         - movie
+        - errors
+        - opinion
 
     handlers:
         slack_cv_handler:
@@ -22,6 +24,24 @@ monolog:
             icon_emoji: ':ghost:'
             level: debug
             channels: [ movie ]
+            include_extra: true
+        slack_errors_handler:
+            type: slackWebhook
+            webhook_url: '%env(SLACK_ERRORS)%'
+            channel: '%env(SLACK_ERRORS)%'
+            bot_name: 'CV'
+            icon_emoji: ':ghost:'
+            level: debug
+            channels: [ errors ]
+            include_extra: true
+        slack_opinion_handler:
+            type: slackWebhook
+            webhook_url: '%env(SLACK_OPINION)%'
+            channel: '%env(SLACK_OPINION)%'
+            bot_name: 'CV'
+            icon_emoji: ':ghost:'
+            level: debug
+            channels: [ opinion ]
             include_extra: true
 
 when@dev:
