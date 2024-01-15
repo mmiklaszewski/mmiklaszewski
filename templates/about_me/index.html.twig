@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row g-5">
         <div class="col-lg-4 sticky-lg-top vh-100">
-            <div class="d-flex flex-column h-100 text-center overflow-auto shadow">
+            <div class="d-flex flex-column  text-center overflow-auto shadow">
                 <img class="w-100 img-fluid mb-4" src="{{ asset('assets/img/me.png') }}" alt="Image">
                 <h1 class="text-primary mt-2">{{ 'about.name' | trans({}, 'about_me') }}</h1>
                 <div class="mb-4" style="height: 22px;">
@@ -119,10 +119,9 @@
                     <div class="position-relative mb-4">
                         <span class="bi bi-arrow-right fs-4 text-light position-absolute" style="top: -5px; left: -50px;"></span>
                         {% set companyData = "%s.%s" | format('experience.companies', i) %}
-{#                        {% set companyData = 'experience.companies.' . {x} %}#}
                         <h5 class="mb-1">{{ "%s.%s" | format (companyData, 'position') | trans({}, 'about_me') }}</h5>
                         <p class="mb-2">{{ "%s.%s" | format (companyData, 'name') | trans({}, 'about_me') }} | <small>{{ "%s.%s" | format (companyData, 'dates') | trans({}, 'about_me') }}</small></p>
-                        <p>{{ "%s.%s" | format (companyData, 'description') | trans({}, 'about_me') }}</p>
+                        <p>{{ "%s.%s" | format (companyData, 'description') | trans({}, 'about_me') | raw}}</p>
                     </div>
                     {% endfor %}
                 </div>
