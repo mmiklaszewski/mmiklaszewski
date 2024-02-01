@@ -24,10 +24,14 @@ final class IndexController extends AbstractController
         return $this->render('about_me/index.html.twig');
     }
 
-    #[Route('/download-cv', name: 'download_cv')]
-    public function downloadCV(Request $request, CommandBus $commandBus): Response
+    #[Route('/download-cv/{lang}', name: 'download_cv')]
+    public function downloadCV(string $lang, Request $request, CommandBus $commandBus): Response
     {
-        $file = new File('data/cv_maciej_miklaszewski.pdf');
+        if (!in_array($lang, $this->getParameter('available_locales'))) {
+            $lang = $this->getParameter('default_locale');
+        }
+
+        $file = new File(sprintf('data/maciej_miklaszewski_cv_%s.pdf', mb_strtolower($lang)));
 
         $commandBus->handle(
             new DownloadCVCommand(

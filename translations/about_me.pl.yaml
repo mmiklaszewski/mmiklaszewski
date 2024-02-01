@@ -3,14 +3,14 @@ about:
   labels: PHP Developer, Elasticsearch, Symfony, OpenAI
   github: https://github.com/mmiklaszewski
   linkedin: https://www.linkedin.com/in/maciek-miklaszewski-583166178/
-  downloadCV: Pobierz CV
+  downloadCV_PL: Pobierz CV (wersja PL)
+  downloadCV_EN: Pobierz CV (wersja EN)
   contactMe: Napisz do mnie
 
 about_me:
   title: O mnie
-  description: "Nazywam się Maciek. Programuję od czasów studiów. Zawodowo od 2016 roku. Jestem absolwentem Uniwersytetu Śląskiego w Katowicach gdzie uzyskałem tytuł inżyniera.
-                Na codzień pracuję jako PHP Developer w oparciu o framework Symfony. Interesuję się technologiami, które mają praktyczne zastosowanie w rozwoju aplikacji webowych takimi jak Elasticsearch, OpenAI, RabbitMQ, Qdrant.
-                Prywatnie lubię majsterkować i jestem szczęśliwym tatą półtorarocznego urwisa."
+  description: "W pracy programisty dążę do rozwiązywania problemów w sposób staranny, sumienny i przejrzysty. Lubię angażować się w projekty o różnej skali i zawodowe wyzwania, poznając przy tym nowe technologie. 
+    <br /> Hobbistycznie pracuję nad aplikacją opartą o Symfony 6.4, która korzysta z OpenAI modelu GPT3.5. Jej celem jest wygenerowanie treści zawierającej opis filmu bądź serialu, a także ich dobór do preferencji użytkownika."
 
 
   information:
@@ -30,7 +30,7 @@ about_me:
 
 skills:
   title: Umiejętności
-  php: PHP (8.3, 7.2)
+  php: PHP (8.3, 7.4)
   symfony: Symfony (3.4, 6.4)
   rabbitmq: RabbitMQ
   elasticsearch: Elasticsearch

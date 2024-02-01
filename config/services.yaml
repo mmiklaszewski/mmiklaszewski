@@ -1,5 +1,9 @@
 parameters:
     app.supported_locales: 'pl|en'
+    default_locale: pl
+    available_locales:
+        - pl
+        - en
 
 
 services:

@@ -16,8 +16,13 @@
                     <a class="btn btn-secondary btn-square mx-1" target="_blank" href="{{ 'about.linkedin' | trans({}, 'about_me') }}"><i class="fab fa-linkedin-in"></i></a>
                 </div>
                 <div class="d-flex align-items-end justify-content-between border-top">
-                    <a href="{{ path('download_cv') }}" class="btn w-50 border-end">{{ 'about.downloadCV' | trans({}, 'about_me') }}</a>
-                    <a href="mailto:{{ 'about_me.information.email_value' | trans({}, 'about_me') }}" class="btn w-50 btn-scroll">{{ 'about.contactMe' | trans({}, 'about_me') }}</a>
+                    <a href="{{ path('download_cv', {'lang' : 'pl'}) }}" class="btn w-50 border-end">{{ 'about.downloadCV_PL' | trans({}, 'about_me') }}</a>
+                    <a href="{{ path('download_cv', {'lang' : 'en'}) }}" class="btn w-50 border-end">{{ 'about.downloadCV_EN' | trans({}, 'about_me') }}</a>
+                </div>
+                <div class="d-flex align-items-end justify-content-between border-top text-">
+                    <div class="text-center" style="width: 100%">
+                        <a href="mailto:{{ 'about_me.information.email_value' | trans({}, 'about_me') }}" class="btn w-50 btn-scroll">{{ 'about.contactMe' | trans({}, 'about_me') }}</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -25,7 +30,7 @@
             <!-- About Start -->
             <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
                 <h1 class="title pb-3 mb-5">{{ 'about_me.title'|trans({}, 'about_me') }}</h1>
-                <p>{{ 'about_me.description'|trans({}, 'about_me') }}</p>
+                <p>{{ 'about_me.description'|trans({}, 'about_me') | raw}}</p>
                 <div class="row mb-4">
                     <div class="col-sm-6 py-1">
                         <span class="fw-medium text-primary">{{ 'about_me.information.name' | trans({}, 'about_me') }}:</span> {{ 'about_me.information.name_value' | trans({}, 'about_me') }}
