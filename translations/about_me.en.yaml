@@ -1,2 +1,108 @@
+about:
+  name: Maciej Miklaszewski
+  labels: PHP Developer, Elasticsearch, Symfony, OpenAI
+  github: https://github.com/mmiklaszewski
+  linkedin: https://www.linkedin.com/in/maciek-miklaszewski-583166178/
+  downloadCV_PL: Download resume (PL)
+  downloadCV_EN: Download resume (EN)
+  contactMe: Email me
+
 about_me:
   title: About me
+  description: "In my work as a programmer, I strive to solve problems with attention, accuracy and clarity. I like to get involved in projects of various sizes, scope and professional challenges while learning new technologies."
+
+
+  information:
+    name: Full name
+    name_value: Maciej Miklaszewski
+    birthday: Birth date
+    birthday_value: 05.05.1993
+    address: Address
+    address_value: Bieruń, Silesia, Poland
+
+    experience: Work experience
+    experience_value: +7 years
+    phone: Phone contact
+    phone_value: +48 790 366 811
+    email: E-mail contact
+    email_value: mmiklaszewski93@gmail.com
+
+skills:
+  title: Technologies
+  php: PHP (8.3, 7.2)
+  symfony: Symfony (3.4, 6.4)
+  rabbitmq: RabbitMQ
+  elasticsearch: Elasticsearch
+  openai: OpenAI (GPT, Whisper, ADA)
+  linux: Linux
+
+experience:
+  title: Work experience
+  companies:
+    1:
+      dates: 12.2016 – current
+      position: Senior PHP Developer
+      name: DBMS Sp. z o.o.
+      description: "> Designing a sales intelligence tool to support B2B lead acquisition processes since its creation as a PHP Developer, with 5 years in the key role of DevLeader <br />
+                    > Managing a technical team of 5 people <br />
+                    > Conducting cyclical planning with product owner and technical planning <br />
+                    > Integrating applications with technologies such as RabbitMQ and Elasticsearch, and implementing Voice/SMS Vonage and Stripe payment system <br />
+                    > Defining the technical scope of the project <br />
+                    > Operating on large data collections stored in the Elasticsearch database <br />
+                    > Delivering tool reliability and effectiveness through attentive code writing and cyclical team CodeReviews <br />
+                    > Planning application development with the strategic product development team"
+
+    2:
+      dates: 03.2016 - 10.2016
+      position: PHP Developer
+      name: KLEEK Ltd
+      description: "Maintaining and developing web applications based on a self-developed PHP framework"
+
+    3:
+      dates: 07.2015
+      position: Intern
+      name: SHG Przemysław Kudłacik
+      description: "Developing a website based on CMS Made Simple"
+
+cert:
+  aidevs:
+    title: AI_devs2 certificate | 11.2023
+
+education:
+  title: Education
+  schools:
+    1:
+      dates: 10.2013 – 05.2018
+      name: University of Silesia in Katowice
+      description: "
+        Kierunek: Information Technology <br>
+        Specialization: Web Application Design <br>
+        Engineer degree"
+
+    2:
+      dates: 10.2012 – 02.2013
+      name: University of Information Technology and Management in Bielsko Biała
+      description: "Information Technology"
+
+    3:
+      dates: 09.2009 – 05.2012
+      name: High School in Bieruń
+      description: "Mathematics, computer science and physics profile"
+
+information:
+  php:
+    title: PHP
+    description: I have 7 years of experience as a PHP Developer, during which I dealt with many challenges, such as integrations with payment gateways (Stripe, DotPay) or sms/voice systems (Vonage, Twilio).
+  symfony:
+    title: Symfony
+    description: I have used the Symfony framework for many projects in my career, but I have also worked with Kohana and a self-developed solution.
+  team:
+    title: Zespół
+    description: Over five years, I have been managing a five-person technical team and ensuring efficient communication.
+  database:
+    title: Bazy danych
+    description: I have worked with databases such as MySQL, Elasticsearch, Qdrant and MSSQL.
+
+hobby:
+  title: Zajęcia hobbystyczne
+  description: "In order to dive more into interesting technologies, I am working on a personal assistant. I'm developing an application based on Symfony (currently 6.4) with OpenAi integration (GPT models, Whisper, ADA) with the use of tools such as Qdrant, Serper to extend functionality."

@@ -1,0 +1,47 @@
+movieCategory:
+  series: series
+  movie: movie
+
+about:
+  title: AI Reviewer
+  description: "
+  Hello! I'm here to search, describe, and rate a movie or series based on your preferences. <br> 
+  I'll also provide recommendations on where you can watch it.
+  <br> <br>
+  
+  Just fill in the details below."
+
+
+title:
+  label: Title
+  placeholder: Enter the title you're interested in
+
+preferences:
+  label: Preferences
+  placeholder: Describe your movie preferences, they will be used during the rating process
+
+search:
+  movie: Search for a movie
+  series: Search for a series
+
+result:
+  title: Reviewer's Result
+  resultTitle: 'Looking for %category%: %title%'
+  description: About the program
+  details: Details
+  preferences: Reviewer's Rating
+  whereWatch: Where to watch?
+  opinion: Opinions about the reviewer
+
+opinion:
+  label: Leave your opinion
+  placeholder: Write your opinion here
+  save: Save
+
+footer:
+  about:  Data needed for summary creation, thanks to
+  and: and
+
+errors:
+  can_not_generate: 'Try searching again or change the title'
+  cant_save_opinion: 'Failed to save the opinion, please try again'

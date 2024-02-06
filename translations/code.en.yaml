@@ -1,0 +1,18 @@
+page:
+  title: To use the application you need the access code
+  description: Ask for your access code
+
+stats:
+  code: Code
+  used: Used
+  description: Code usage information
+
+code:
+  label: Enter CODE
+  placeholder: sample-code-123
+  button: Set CODE
+
+
+errors:
+  not_found: 'Code not found "%code%"'
+  code_is_used: 'Code %code% has already been used'

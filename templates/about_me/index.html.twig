@@ -141,9 +141,10 @@
                             <div class="row portfolio-container">
                                 <div class="col-md-12 mb-12 portfolio-item">
                                     <div class="position-relative overflow-hidden mb-2">
-                                        <img class="img-fluid w-100" src="{{ asset('assets/custom/aidevs.png') }}" alt="">
+                                        {% set aidevs_file = 'assets/custom/aidevs_' ~ app.request.locale ~'.png' %}
+                                        <img class="img-fluid w-100" src="{{ asset(aidevs_file) }}" alt="">
                                         <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                                            <a href="{{ asset('assets/custom/aidevs.png') }}" data-lightbox="portfolio">
+                                            <a href="{{ asset(aidevs_file) }}" data-lightbox="portfolio">
                                                 <i class="bi bi-plus text-light"></i>
                                             </a>
                                         </div>
