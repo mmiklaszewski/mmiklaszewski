@@ -221,3 +221,10 @@
   color: red;
   opacity: 0.5;
 }
+
+.navbar-light .navbar-nav .nav-link {
+  color: #fff;
+}
+.navbar-light .navbar-nav .nav-link.active {
+  color: #00B87B;
+}

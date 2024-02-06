@@ -1,11 +1,12 @@
 404:
   title: 404
-  return: Wróć do CV
+  return: Back to CV
 
 
 menu:
   cv: CV
-  app: AI Recenzent
+  app: AI Reviewer
+
 
 languages:
   polish: PL

@@ -43,11 +43,11 @@
     <div class="row">
         <div class="col-md-12">
             <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
-
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item">
                                 <a class="nav-link {% if current is defined and current == 'cv' %} active {% endif %}" aria-current="page" href="{{ path('homepage') }}">{{ 'menu.cv' | trans({}, 'page') }}</a>
@@ -56,11 +56,15 @@
                                 <a class="nav-link {% if current is defined and current == 'app' %} active {% endif %}" aria-current="page" href="{{ path('app') }}">{{ 'menu.app' | trans({}, 'page') }}</a>
                             </li>
                         </ul>
+
+                        <label>
+                            <select name="lang" class="form-select selectpicker form-select-sm" data-width="fit" style="color: #000">
+                                <option {% if app.request.locale == 'pl' %}selected{% endif %} value="pl">{{ 'languages.polish' | trans({}, 'page')  }}</option>
+                                <option {% if app.request.locale == 'en' %}selected{% endif %} value="en">{{ 'languages.english' | trans({}, 'page')  }}</option>
+                            </select>
+                        </label>
                     </div>
-
             </nav>
-
-
         </div>
     </div>
 </div>

@@ -29,7 +29,7 @@ about_me:
 
 skills:
   title: Technologies
-  php: PHP (8.3, 7.2)
+  php: PHP (8.3, 7.4)
   symfony: Symfony (3.4, 6.4)
   rabbitmq: RabbitMQ
   elasticsearch: Elasticsearch

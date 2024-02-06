@@ -107,3 +107,10 @@ function checkInput(id, min, max) {
 
     return isValid;
 }
+
+$( ".selectpicker" ).on( "change", function() {
+    var selectedLanguage = $(this).val();
+    var currentUrl = window.location.href;
+    var newUrl = currentUrl.replace(/\/[a-z]{2}\//, '/' + selectedLanguage + '/');
+    window.location.href = newUrl;
+} );
