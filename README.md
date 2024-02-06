@@ -6,4 +6,4 @@ To create the project, I used Docker, the OpenAI GPT 3.5 model, and the Serper.d
 
 ---
 
-Application available at: [https://maciejmiklaszewski.pl/](https://maciejmiklaszewski.pl/){:target="_blank"}
+Application available at: <a href="https://maciejmiklaszewski.pl/" target="_blank">https://maciejmiklaszewski.pl/</a>
