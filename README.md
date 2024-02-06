@@ -5,3 +5,5 @@ CV-APP is an application based on PHP (8.3) and the Symfony (6.4) framework. The
 To create the project, I used Docker, the OpenAI GPT 3.5 model, and the Serper.dev search engine.
 
 ---
+
+Application available at: [https://maciejmiklaszewski.pl/](https://maciejmiklaszewski.pl/){:target="_blank"}
