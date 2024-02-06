@@ -57,7 +57,7 @@
                             </li>
                         </ul>
 
-                        <label>
+                        <label class="ms-4">
                             <select name="lang" class="form-select selectpicker form-select-sm" data-width="fit" style="color: #000">
                                 <option {% if app.request.locale == 'pl' %}selected{% endif %} value="pl">{{ 'languages.polish' | trans({}, 'page')  }}</option>
                                 <option {% if app.request.locale == 'en' %}selected{% endif %} value="en">{{ 'languages.english' | trans({}, 'page')  }}</option>
