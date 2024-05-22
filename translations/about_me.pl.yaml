@@ -41,7 +41,12 @@ experience:
   title: Doświadczenie
   companies:
     1:
-      dates: 12.2016 - obecnie2
+      dates: 04.2024 - obecnie
+      position: PHP Developer
+      name: E Net Production
+      description: ">Tworzenie oraz rozwój autorskiego systemu Adafir z branży e-commerce"
+    2:
+      dates: 12.2016 - 03.2024
       position: Senior PHP Developer
       name: DBMS Sp. z o.o.
       description: "> Projektowanie narzędzia sales intelligence wspierającego
@@ -56,13 +61,13 @@ experience:
                     > Zapewnianie niezawodności i skuteczności narzędzia poprzez staranne pisanie kodu i cykliczne zespołowe CodeReview <br />
                     > Planowanie rozwoju aplikacji z zespołem ds. strategicznego rozwoju produktu "
 
-    2:
+    3:
       dates: 03.2016 - 10.2016
       position: PHP Developer
       name: KLEEK Ltd
       description: "Utrzymywanie oraz rozwój aplikacji webowych w oparciu o autorski framework PHP."
 
-    3:
+    4:
       dates: 07.2015
       position: Praktykant
       name: SHG Przemysław Kudłacik
