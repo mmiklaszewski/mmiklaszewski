@@ -40,7 +40,12 @@ experience:
   title: Work experience
   companies:
     1:
-      dates: 12.2016 – current
+      dates: 04.2024 - current
+      position: PHP Developer
+      name: E Net Production
+      description: ">Creation and development of the original Adafir system for the e-commerce industry"
+    2:
+      dates: 12.2016 – 03.2024
       position: Senior PHP Developer
       name: DBMS Sp. z o.o.
       description: "> Designing a sales intelligence tool to support B2B lead acquisition processes since its creation as a PHP Developer, with 5 years in the key role of DevLeader <br />
@@ -52,13 +57,13 @@ experience:
                     > Delivering tool reliability and effectiveness through attentive code writing and cyclical team CodeReviews <br />
                     > Planning application development with the strategic product development team"
 
-    2:
+    3:
       dates: 03.2016 - 10.2016
       position: PHP Developer
       name: KLEEK Ltd
       description: "Maintaining and developing web applications based on a self-developed PHP framework"
 
-    3:
+    4:
       dates: 07.2015
       position: Intern
       name: SHG Przemysław Kudłacik
